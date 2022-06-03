@@ -44,12 +44,7 @@ function validarString(obj){
     for (const property in obj) {
         if (obj[property].length === 0) {
             obj[property] = 0
-        }else if(obj[property]===e) {
-            obj[property]=NaN
-            divRenderError.innerHTML=`
-            hay un error o faltan datos
-            ` 
-        }else if(isNaN(obj[property])) {
+        }else if(isNaN(obj[property])||obj[property]===Math.E) {
             obj[property]=NaN
             divRenderError.innerHTML=`
             hay un error o faltan datos
