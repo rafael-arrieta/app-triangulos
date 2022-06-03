@@ -42,16 +42,17 @@ function aDecimal(grados, minutos, segundos){
 
 function validarString(obj){
     for (const property in obj) {
-        if (obj[property].length === 0) {
-            obj[property] = 0
-        }else if(isNaN(obj[property])||obj[property]===Math.E) {
-            obj[property]=NaN
+        if (obj[property].length ===0) {
+            obj[property] = 0;
+        }else if(isNaN(obj[property])) {
+            
             divRenderError.innerHTML=`
             hay un error o faltan datos
-            ` 
+            `
+            obj[property]=NaN;
         }else{
-            obj[property] = parseFloat(obj[property])
+            obj[property] = parseFloat(obj[property]);
         }
-        console.log(obj[property])
-    }
-}
+    };
+    console.log(obj)
+};
