@@ -44,7 +44,7 @@ function validarString(obj){
     for (const property in obj) {
         if (obj[property].length === 0) {
             obj[property] = 0
-        }else if(String.remplaceAll(e)) {
+        }else if(obj[property]=e) {
             obj[property]=NaN
             divRenderError.innerHTML=`
             hay un error o faltan datos
