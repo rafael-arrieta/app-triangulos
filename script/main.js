@@ -4,18 +4,41 @@ let divRenderSolucion = document.getElementById('render-solucion');
 
 
 btnResolver.addEventListener('click', ()=>{
-    datos = estructuraDatos()
-    datos = validarString(datos)
-    datos.degreeA = aDecimal(datos.gradA,datos.minA,datos.segA);
-    datos.degreeB = aDecimal(datos.gradB,datos.minB,datos.segB);
-    datos.degreeC = aDecimal(datos.gradC,datos.minC,datos.segC);
-    let codigo = generarCodigoRender(datos,1)
+    removeTypos()
+    let datos = estructuraDatos()
+    removeCeros()
+    datos = angleToDegree(datos)
+    let codigo = codeToRender(datos);
+    console.log(datos)
     console.log(codigo)
     
 });
 
+function removeTypos(){
+    let allInputs = document.getElementsByClassName('input-dato')
+    for (let i = 0; i<allInputs.length; i++){
+        allInputs[i].value=allInputs[i].value.replace(/[^0-9.]/gi, '')//expresion regular
+        if (allInputs[i].value==='') allInputs[i].value=0
+        allInputs[i].value=parseFloat(allInputs[i].value)
+    }
+    let clsGrado = document.getElementsByClassName('clsGrado')
+    for (let i = 0; i<clsGrado.length; i++){
+        if (clsGrado[i].value>179) clsGrado[i].value=0;
+        clsGrado[i].value= parseInt(clsGrado[i].value)
+    }
+    let clsMinuto = document.getElementsByClassName('clsMinuto')
+    for (let i = 0; i<clsMinuto.length; i++){
+        if (clsMinuto[i].value>59) clsMinuto[i].value=0;
+        clsMinuto[i].value= parseInt(clsMinuto[i].value)
+    }
+    let clsSegundo = document.getElementsByClassName('clsSegundo')
+    for (let i = 0; i<clsMinuto.length; i++){
+        if (clsSegundo[i].value>59.9) clsSegundo[i].value=0;
+    }
+}
+
 function estructuraDatos(){
-    let datos = {
+    let obj = {
         //15 elementos // 3 de cada...
         ladoA: document.getElementById('inputA-lado').value,
         ladoB: document.getElementById('inputB-lado').value,
@@ -33,39 +56,31 @@ function estructuraDatos(){
         degreeB:'',
         degreeC:'',
     }
-
-    return datos;
+    return obj;
 };
 
-function aDecimal(grados,minutos,segundos){
-    if(grados-parseInt(grados)===0 && minutos-parseInt(minutos) === 0){
-        if (grados>=0 && grados<180){
-            if (minutos>=0 && minutos<60){
-                if(segundos>=0 && segundos<60){
-                    return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(3));
-        }}}}
-    
-    return false
-
-}
-
-function validarString(obj){
-    for (let property in obj) {
-        if (obj[property].length ===0){
-            obj[property] = 0;
-        }else if(isNaN(obj[property])||obj[property]==Math.E){
-            obj[property]='error';
-            divRenderError.innerHTML=`hay un error en un campo`;
-        }else{
-            obj[property] = parseFloat(obj[property]);
+function removeCeros(){
+    let allInputs = document.getElementsByClassName('input-dato')
+        for (let i = 0; i<allInputs.length; i++){
+            if (allInputs[i].value==0) allInputs[i].value=''
         }
-    }
-    //este deberia retornar datos o terminar proceso
-    //return false???
-    return datos
 }
 
-function generarCodigoRender(obj){
+function angleToDegree(obj){
+    obj.degreeA = toDegree(obj.gradA,obj.minA,obj.segA);
+    obj.degreeB = toDegree(obj.gradB,obj.minB,obj.segB);
+    obj.degreeC = toDegree(obj.gradC,obj.minC,obj.segC);
+    obj.ladoA=parseFloat(obj.ladoA);
+    obj.ladoB=parseFloat(obj.ladoB);
+    obj.ladoC=parseFloat(obj.ladoC);
+    return obj
+}
+
+function toDegree(grados,minutos,segundos){
+        return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(3));
+    }
+
+function codeToRender(obj){
     let codigo = '';
     let arr = [
         obj.ladoA,
@@ -73,13 +88,12 @@ function generarCodigoRender(obj){
         obj.ladoC,
         obj.degreeA,
         obj.degreeB,
-        obj.degreeC
+        obj.degreeC,
     ];
     for(let i = 0; i < arr.length; i++){
         if(codigo.length === 3) return codigo;
         if(arr[i] > 0) codigo += i;
     };
-    divRenderError.innerHTML=`faltan datos`
     return false;
 };
 
