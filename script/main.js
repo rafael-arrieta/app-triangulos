@@ -2,16 +2,13 @@ let btnResolver = document.getElementById('btn-resolver');
 let divRenderError = document.getElementById('render-error');
 let divRenderSolucion = document.getElementById('render-solucion');
 
-
 btnResolver.addEventListener('click', ()=>{
     removeTypos()
     let datos = estructuraDatos()
     removeCeros()
     datos = angleToDegree(datos)
     let codigo = codeToRender(datos);
-    console.log(datos)
-    console.log(codigo)
-    
+    divRenderSolucion = renderSolution(codigo,datos);
 });
 
 function removeTypos(){
@@ -97,3 +94,20 @@ function codeToRender(obj){
     return false;
 };
 
+function renderSolution(code,obj){
+    if(code ==='012') divRenderSolucion.innerHTML = renderBlock012(obj);
+    if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
+}
+
+function renderBlock012(obj){
+    console.log(obj)
+    let block012=`
+    $$\\cos${obj.ladoA}$$
+    $$\\frac{1}{\\sqrt{x^2 + 1}}$$
+    
+    `
+    
+
+    MathJax.typesetPromise()
+    return block012
+}
