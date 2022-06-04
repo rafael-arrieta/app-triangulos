@@ -8,7 +8,7 @@ btnResolver.addEventListener('click', ()=>{
     removeCeros()
     datos = angleToDegree(datos)
     let codigo = codeToRender(datos);
-    divRenderSolucion = renderSolution(codigo,datos);
+    renderSolution(codigo,datos);
 });
 
 function removeTypos(){
@@ -95,7 +95,7 @@ function codeToRender(obj){
 };
 
 function renderSolution(code,obj){
-    
     if(code ==='012') divRenderSolucion.innerHTML = renderBlock012(obj);
     //if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
+    MathJax.typesetPromise()
 }
