@@ -95,19 +95,7 @@ function codeToRender(obj){
 };
 
 function renderSolution(code,obj){
+    
     if(code ==='012') divRenderSolucion.innerHTML = renderBlock012(obj);
-    if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
-}
-
-function renderBlock012(obj){
-    console.log(obj)
-    let block012=`
-    $$\\cos${obj.ladoA}$$
-    $$\\frac{1}{\\sqrt{x^2 + 1}}$$
-    
-    `
-    
-
-    MathJax.typesetPromise()
-    return block012
+    //if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
 }
