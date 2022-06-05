@@ -69,17 +69,17 @@ function renderBlock012(obj){
         <div class="interno-5">
             <p style="
                 position: absolute;
-                top: ${((arrDibujo[2]/2)-4)}px; 
-                left:${((arrDibujo[0]/2)+30)}px;">${arrLados[1][0]}</p>
+                top: ${((arrDibujo[2]/2)-2)}px; 
+                left:${((arrDibujo[0]/2)+15)}px;">${arrLados[1][0]}</p>
 
             <p style="
                 position: absolute;
-                top: ${parseFloat(arrDibujo[2])+15}px; 
+                top: ${parseFloat(arrDibujo[2])+20}px; 
                 left:150px;">${arrLados[2][0]}</p>
 
             <p style="
                 position: absolute;
-                top: ${((arrDibujo[2]/2)-4)}px; 
+                top: ${((arrDibujo[2]/2)-2)}px; 
                 left:${(parseFloat(arrDibujo[0])+parseFloat(arrDibujo[1]/2)+45)}px;">${arrLados[0][0]}</p>
             
             <div class="triangulo">    
