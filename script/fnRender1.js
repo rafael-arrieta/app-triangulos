@@ -53,7 +53,27 @@ function renderBlock012(obj){
         $$ \\gamma = ${resultado3}$$
         $$ \\gamma = ${gamma[0]} º ${gamma[1]} ' ${gamma[2]} $$
         </p>
+
+        
+            <div class="interno-5">
+                <p class="render lado-a">Lado-A</p>
+                <p class="render lado-b">Lado-B</p>
+                <p class="render lado-c">Lado-C</p>
+                
+                <div class="triangulo">    
+                    <div style="
+                    border-top: ${obj.ladoA}0px solid rgb(240, 245, 245);
+                    border-right: 160px solid rgb(255, 187, 119);">
+                    </div>
+                    <div" 
+                    style="border-top: ${obj.ladoA}0px solid rgb(240, 245, 245);
+                    border-left: 50px solid rgb(255, 187, 119);"></div>
+                </div>
+            </div>
+                
         </div>`
+
+        
         
     return block012
 }

@@ -172,10 +172,11 @@ input[type=number] {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 240px 1fr;
-    grid-template-rows: 50px auto 50px;
+    grid-template-rows: 15px auto 15px;
 }
 
 .triangulo{
+    
     grid-column: 2/3;
     grid-row:2/3;
     display: flex;
@@ -184,18 +185,18 @@ input[type=number] {
     justify-content: center;
 }
 
-.triangulo-A{
+/* .triangulo-A{
     width: 0px;
     height: 0px;
-    border-top: 200px solid rgb(240, 245, 245);
+    border-top: 100px solid rgb(240, 245, 245);
     border-right: 160px solid rgb(255, 187, 119);
-    }
+    }  */
 
-.triangulo-B{
+.triangulo-A{
     width: 0;
     height: 0;
-    border-top: 200px solid rgb(240, 245, 245);
-    border-left: 50px solid rgb(255, 187, 119);
+    /*border-top: 100px solid rgb(240, 245, 245);*/
+    
     }
 
 .render{
@@ -236,7 +237,7 @@ input[type=number] {
     flex-direction: column;
     align-items: center;
     margin-top: 15px;
-    font-size: 0.8em;
+    font-size: 0.85em;
 }
 .texto-solucion1{
     font-size: large;
