@@ -138,18 +138,17 @@ function renderTriangulo(base,hip,ang){
     let opuesto = (seno*hip)
     let adyacente1 = (coseno*hip)
     let adyacente2 = (base-adyacente1)
-    let h = ((280*opuesto)/base).toFixed(0)
-    let d1 = ((280*adyacente1)/base).toFixed(0)
-    let d2 = ((280*adyacente2)/base).toFixed(0)
+    let h = ((240*opuesto)/base).toFixed(0)
+    let d1 = ((240*adyacente1)/base).toFixed(0)
+    let d2 = ((240*adyacente2)/base).toFixed(0)
 
     return[d1, d2, h]
 }
 
 function valueRenderTriangle(l1, l2, l3, a1, a2, a3){
-    arr=[]
-    if(l1>=l2 && l1>=l3) arr= renderTriangulo(l1,l2,a3)
-    if(l2>=l1 && l2>=l3) arr = renderTriangulo(l2,l3,a1)
-    if(l3>=l1 && l3>=l2) arr = renderTriangulo(l3,l1,a2)
-    
+    let arr=[]
+    let arrAux=[[l1,a1], [l2,a2], [l3,a3]]
+    arrAux.sort()
+    arr= renderTriangulo(arrAux[2][0],arrAux[1][0],arrAux[0][1])
     return arr
 }

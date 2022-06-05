@@ -23,6 +23,13 @@ function renderBlock012(obj){
 
         let arrDibujo = valueRenderTriangle(obj.ladoA,obj.ladoB,obj.ladoC,resultado1,resultado2,resultado3)
 
+        let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,resultado2],[obj.ladoC,resultado3]]
+        arrLados.sort()
+
+        console.log(arrDibujo[0])
+        console.log(arrDibujo[1])
+        console.log(arrDibujo[2])
+
         let block012=`<div class="interno-solucion">
 
         <p class="texto-solucion1">Teorema del coseno:</p>
@@ -60,9 +67,17 @@ function renderBlock012(obj){
         </p>
 
         <div class="interno-5">
-            <p class="render lado-a">Lado-A</p>
-            <p class="render lado-b">Lado-B</p>
-            <p class="render lado-c">Lado-C</p>
+            <p style="
+                position: absolute;
+                top: ${((arrDibujo[2]/2)-4)}px; 
+                left:${((arrDibujo[0]/2)+30)}px;">${arrLados[1][0]}</p>
+
+            <p style="
+                position: absolute;
+                top: ${((arrDibujo[2]/2)-4)}px; 
+                left:${((parseFloat(arrDibujo[0])+(arrDibujo[1]/2)+15))}px;">${arrLados[2][0]}</p>
+            
+            <p class="lado-c">$$222.50$$</p>
             
             <div class="triangulo">    
                 <div style="
