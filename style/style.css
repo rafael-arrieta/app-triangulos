@@ -185,26 +185,10 @@ input[type=number] {
     justify-content: center;
 }
 
-/* .triangulo-A{
-    width: 0px;
-    height: 0px;
-    border-top: 100px solid rgb(240, 245, 245);
-    border-right: 160px solid rgb(255, 187, 119);
-    }  */
-
 .triangulo-A{
     width: 0;
     height: 0;
-    /*border-top: 100px solid rgb(240, 245, 245);*/
-    
     }
-
-.render{
-    width: 20px;
-    height: 20px;
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color:rgb(83, 83, 83);
-}
 
 .lado-a{
     position: relative;
