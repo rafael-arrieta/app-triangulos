@@ -138,9 +138,9 @@ function renderTriangulo(base,hip,ang){
     let opuesto = (seno*hip)
     let adyacente1 = (coseno*hip)
     let adyacente2 = (base-adyacente1)
-    let h = ((200*opuesto)/base).toFixed(0)
-    let d1 = ((200*adyacente1)/base).toFixed(0)
-    let d2 = ((200*adyacente2)/base).toFixed(0)
-    
+    let h = ((280*opuesto)/base).toFixed(0)
+    let d1 = ((280*adyacente1)/base).toFixed(0)
+    let d2 = ((280*adyacente2)/base).toFixed(0)
+
     return[d1, d2, h]
 }
