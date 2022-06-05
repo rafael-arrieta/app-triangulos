@@ -74,10 +74,13 @@ function renderBlock012(obj){
 
             <p style="
                 position: absolute;
+                top: ${parseFloat(arrDibujo[2])+15}px; 
+                left:150px;">${arrLados[2][0]}</p>
+
+            <p style="
+                position: absolute;
                 top: ${((arrDibujo[2]/2)-4)}px; 
-                left:${((parseFloat(arrDibujo[0])+(arrDibujo[1]/2)+15))}px;">${arrLados[2][0]}</p>
-            
-            <p class="lado-c">$$222.50$$</p>
+                left:${(parseFloat(arrDibujo[0])+parseFloat(arrDibujo[1]/2)+45)}px;">${arrLados[0][0]}</p>
             
             <div class="triangulo">    
                 <div style="

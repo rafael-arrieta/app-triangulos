@@ -170,10 +170,12 @@ input[type=number] {
 
 .interno-5{
     width: 100%;
+    padding-bottom: 15px;
     display: grid;
     grid-template-columns: 1fr 240px 1fr;
     grid-template-rows: 15px auto 15px;
     position: relative;
+    color:rgb(58, 58, 58);
 }
 
 .triangulo{  
