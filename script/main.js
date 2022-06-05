@@ -148,7 +148,7 @@ function renderTriangulo(base,hip,ang){
 function valueRenderTriangle(l1, l2, l3, a1, a2, a3){
     arr=[]
     if(l1>l2 && l1>l2) arr= renderTriangulo(l1,l2,a3)
-    if(l2>l1 && l2>l3) arr = renderTriangulo(l2,l1,a3)
+    if(l2>l1 && l2>l3) arr = renderTriangulo(l2,l3,a1)
     if(l3>l1 && l3>l2) arr = renderTriangulo(l3,l1,a2)
     
     return arr
