@@ -99,3 +99,35 @@ function renderSolution(code,obj){
     //if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
     MathJax.typesetPromise()
 }
+
+//COSENO 
+// function calcularCos(angulo){
+//     angulo = parseFloat(Math.cos(angulo*Math.PI/180));
+//     return angulo;
+// };
+
+//ARCO COSENO
+function calcularAcos(angulo){
+    angulo = parseFloat(Math.acos(angulo)*180/Math.PI);
+    return angulo;
+};
+
+// //SENO
+// function calcularSin(angulo){
+//     angulo = parseFloat(Math.sin(angulo*Math.PI/180));
+//     return angulo;
+// };
+// //ARCO SENO
+// function calcularAsin(angulo){
+//     angulo = parseFloat(Math.asin(angulo)*180/Math.PI);
+//     return angulo;
+// };
+
+function convertirSexagesimal(dato){
+    let decimal = (dato*1).toFixed(6);
+    let grad = parseInt(decimal);
+    let minutoAux = (decimal-parseInt(decimal))*60;
+    let min = parseInt(minutoAux)
+    let seg = ((minutoAux-parseInt(minutoAux))*60).toFixed(1);
+    return [grad, min, seg]
+};
