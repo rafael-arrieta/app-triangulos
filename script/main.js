@@ -16,6 +16,7 @@ function removeTypos(){
     for (let i = 0; i<allInputs.length; i++){
         allInputs[i].value=allInputs[i].value.replace(/[^0-9.]/gi, '')//expresion regular
         if (allInputs[i].value==='') allInputs[i].value=0
+        allInputs[i].value=(parseFloat((allInputs[i].value))).toFixed(2)
         allInputs[i].value=parseFloat(allInputs[i].value)
     }
     let clsGrado = document.getElementsByClassName('clsGrado')
@@ -30,7 +31,9 @@ function removeTypos(){
     }
     let clsSegundo = document.getElementsByClassName('clsSegundo')
     for (let i = 0; i<clsMinuto.length; i++){
+        clsSegundo[i].value=(parseFloat((allInputs[i].value))).toFixed(1)
         if (clsSegundo[i].value>59.9) clsSegundo[i].value=0;
+        
     }
 }
 

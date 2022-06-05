@@ -26,10 +26,6 @@ function renderBlock012(obj){
         let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,resultado2],[obj.ladoC,resultado3]]
         arrLados.sort()
 
-        console.log(arrDibujo[0])
-        console.log(arrDibujo[1])
-        console.log(arrDibujo[2])
-
         let block012=`<div class="interno-solucion">
 
         <p class="texto-solucion1">Teorema del coseno:</p>
@@ -70,7 +66,7 @@ function renderBlock012(obj){
             <p style="
                 position: absolute;
                 top: ${((arrDibujo[2]/2)-2)}px; 
-                left:${((arrDibujo[0]/2)+15)}px;">${arrLados[1][0]}</p>
+                left:${((arrDibujo[0]/2)+15)}px;">${(arrLados[1][0])}</p>
 
             <p style="
                 position: absolute;
