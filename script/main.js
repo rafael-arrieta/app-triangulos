@@ -101,10 +101,10 @@ function renderSolution(code,obj){
 }
 
 //COSENO 
-// function calcularCos(angulo){
-//     angulo = parseFloat(Math.cos(angulo*Math.PI/180));
-//     return angulo;
-// };
+function calcularCos(angulo){
+    angulo = parseFloat(Math.cos(angulo*Math.PI/180));
+    return angulo;
+};
 
 //ARCO COSENO
 function calcularAcos(angulo){
@@ -112,16 +112,16 @@ function calcularAcos(angulo){
     return angulo;
 };
 
-// //SENO
-// function calcularSin(angulo){
-//     angulo = parseFloat(Math.sin(angulo*Math.PI/180));
-//     return angulo;
-// };
-// //ARCO SENO
-// function calcularAsin(angulo){
-//     angulo = parseFloat(Math.asin(angulo)*180/Math.PI);
-//     return angulo;
-// };
+//SENO
+function calcularSin(angulo){
+    angulo = parseFloat(Math.sin(angulo*Math.PI/180));
+    return angulo;
+};
+//ARCO SENO
+function calcularAsin(angulo){
+    angulo = parseFloat(Math.asin(angulo)*180/Math.PI);
+    return angulo;
+};
 
 function convertirSexagesimal(dato){
     let decimal = (dato*1).toFixed(6);
@@ -131,3 +131,16 @@ function convertirSexagesimal(dato){
     let seg = ((minutoAux-parseInt(minutoAux))*60).toFixed(1);
     return [grad, min, seg]
 };
+
+function renderTriangulo(base,hip,ang){
+    let seno = calcularSin(ang)
+    let coseno = calcularCos(ang)
+    let opuesto = (seno*hip)
+    let adyacente1 = (coseno*hip)
+    let adyacente2 = (base-adyacente1)
+    let h = ((200*opuesto)/base).toFixed(0)
+    let d1 = ((200*adyacente1)/base).toFixed(0)
+    let d2 = ((200*adyacente2)/base).toFixed(0)
+    
+    return[d1, d2, h]
+}

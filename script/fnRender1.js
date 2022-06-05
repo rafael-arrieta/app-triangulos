@@ -1,7 +1,10 @@
 //https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference
 function renderBlock012(obj){
 
-    if (obj.ladoA-obj.ladoB<obj.ladoC && obj.ladoA+obj.ladoB>obj.ladoC)
+    if (obj.ladoA-obj.ladoB<obj.ladoC && obj.ladoA+obj.ladoB>obj.ladoC &&
+        obj.ladoA-obj.ladoC<obj.ladoB && obj.ladoA+obj.ladoC>obj.ladoB &&
+        obj.ladoC-obj.ladoB<obj.ladoA && obj.ladoC+obj.ladoB>obj.ladoA){
+
         squaredA=(obj.ladoA*obj.ladoA).toFixed(2)
         squaredB=(obj.ladoB*obj.ladoB).toFixed(2)
         squaredC=(obj.ladoC*obj.ladoC).toFixed(2)
@@ -17,7 +20,15 @@ function renderBlock012(obj){
         let alfa = convertirSexagesimal(resultado1)
         let beta = convertirSexagesimal(resultado2)
         let gamma = convertirSexagesimal(resultado3)
-        
+
+        let arrDibujo
+
+        if(obj.ladoA>obj.ladoB && obj.ladoA>obj.ladoC){
+            arrDibujo = renderTriangulo(obj.ladoA,obj.ladoB,resultado3)
+        }if(obj.ladoB>obj.ladoA && obj.ladoB>obj.ladoC){
+            arrDibujo = renderTriangulo(obj.ladoB,obj.ladoA,resultado3)
+        }arrDibujo = renderTriangulo(obj.ladoC,obj.ladoA,resultado2)
+
         let block012=`<div class="interno-solucion">
 
         <p class="texto-solucion1">Teorema del coseno:</p>
@@ -54,26 +65,23 @@ function renderBlock012(obj){
         $$ \\gamma = ${gamma[0]} º ${gamma[1]} ' ${gamma[2]} $$
         </p>
 
-        
-            <div class="interno-5">
-                <p class="render lado-a">Lado-A</p>
-                <p class="render lado-b">Lado-B</p>
-                <p class="render lado-c">Lado-C</p>
-                
-                <div class="triangulo">    
-                    <div style="
-                    border-top: ${obj.ladoA}0px solid rgb(240, 245, 245);
-                    border-right: 160px solid rgb(255, 187, 119);">
-                    </div>
-                    <div" 
-                    style="border-top: ${obj.ladoA}0px solid rgb(240, 245, 245);
-                    border-left: 50px solid rgb(255, 187, 119);"></div>
+        <div class="interno-5">
+            <p class="render lado-a">Lado-A</p>
+            <p class="render lado-b">Lado-B</p>
+            <p class="render lado-c">Lado-C</p>
+            
+            <div class="triangulo">    
+                <div style="
+                border-top: ${arrDibujo[2]}px solid rgb(240, 245, 245);
+                border-right: ${arrDibujo[0]}px solid rgb(255, 187, 119);">
                 </div>
+                <div" 
+                style="border-top: ${arrDibujo[2]}px solid rgb(240, 245, 245);
+                border-left: ${arrDibujo[1]}px solid rgb(255, 187, 119);"></div>
             </div>
+        </div>
                 
-        </div>`
-
-        
-        
+        </div>`    
     return block012
+    }
 }
