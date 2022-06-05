@@ -21,13 +21,7 @@ function renderBlock012(obj){
         let beta = convertirSexagesimal(resultado2)
         let gamma = convertirSexagesimal(resultado3)
 
-        let arrDibujo
-
-        if(obj.ladoA>obj.ladoB && obj.ladoA>obj.ladoC){
-            arrDibujo = renderTriangulo(obj.ladoA,obj.ladoB,resultado3)
-        }if(obj.ladoB>obj.ladoA && obj.ladoB>obj.ladoC){
-            arrDibujo = renderTriangulo(obj.ladoB,obj.ladoA,resultado3)
-        }arrDibujo = renderTriangulo(obj.ladoC,obj.ladoA,resultado2)
+        let arrDibujo = valueRenderTriangle(obj.ladoA,obj.ladoB,obj.ladoC,resultado1,resultado2,resultado3)
 
         let block012=`<div class="interno-solucion">
 
@@ -76,7 +70,8 @@ function renderBlock012(obj){
                 border-right: ${arrDibujo[0]}px solid rgb(255, 187, 119);">
                 </div>
                 <div" 
-                style="border-top: ${arrDibujo[2]}px solid rgb(240, 245, 245);
+                style="
+                border-top: ${arrDibujo[2]}px solid rgb(240, 245, 245);
                 border-left: ${arrDibujo[1]}px solid rgb(255, 187, 119);"></div>
             </div>
         </div>
