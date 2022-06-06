@@ -153,17 +153,17 @@ function ordenarArray(arr){
     arrAux[2][0]=parseInt(arr[2][0]*100);
     let Aux2;
     if (arrAux[0][0]>arrAux[1][0]){
-        aux2=arrAux[0][0];
-        arrAux[0][0]=arrAux[1][0];
-        arrAux[1][0]=aux2;
+        aux2=arrAux[0];
+        arrAux[0]=arrAux[1];
+        arrAux[1]=aux2;
         if (arrAux[1][0]>arrAux[2][0]){
-            aux2=arrAux[1][0];
-            arrAux[1][0]=arrAux[2][0];
-            arrAux[2][0]=aux2;
+            aux2=arrAux[1];
+            arrAux[1]=arrAux[2];
+            arrAux[2]=aux2;
             if (arrAux[0][0]>arrAux[1][0]){
-                aux2=arrAux[0][0];
-                arrAux[0][0]=arrAux[1][0];
-                arrAux[1][0]=aux2;
+                aux2=arrAux[0];
+                arrAux[0]=arrAux[1];
+                arrAux[1]=aux2;
             };
         };
     };

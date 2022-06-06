@@ -29,7 +29,10 @@ function renderBlock012(obj){
             let gamma = convertirSexagesimal(resultado3)
             let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,resultado2],[obj.ladoC,resultado3]]
             arrLados=ordenarArray(arrLados)
+            console.log(arrLados);
             let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
+
+            //console.log(arrDibujo);
             let block012=`<div class="interno-solucion">
             <p class="texto-solucion1">Teorema del coseno:</p>
             <p class="texto-solucion2">
