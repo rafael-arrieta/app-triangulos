@@ -21,10 +21,14 @@ function renderBlock012(obj){
         let beta = convertirSexagesimal(resultado2)
         let gamma = convertirSexagesimal(resultado3)
 
-        let arrDibujo = valueRenderTriangle(obj.ladoA,obj.ladoB,obj.ladoC,resultado1,resultado2,resultado3)
-
+        
         let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,resultado2],[obj.ladoC,resultado3]]
-        arrLados.sort()
+        console.log(arrLados)
+        
+        arrLados=ordenarArray(arrLados)
+        console.log(arrLados)
+
+        let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
 
         let block012=`<div class="interno-solucion">
 
@@ -92,5 +96,12 @@ function renderBlock012(obj){
                 
         </div>`    
     return block012
+
+    }else{
+        let block012=`<div class="interno-solucion">
+        <p class="render-error">Algo pasa... vo fijate!</p>
+        <p class="texto-solucion1"></p>
+        </div>`
+        return block012
     }
 }

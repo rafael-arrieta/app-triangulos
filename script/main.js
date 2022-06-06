@@ -100,6 +100,9 @@ function codeToRender(obj){
 function renderSolution(code,obj){
     if(code ==='012') divRenderSolucion.innerHTML = renderBlock012(obj);
     //if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
+
+    
+
     MathJax.typesetPromise()
 }
 
@@ -148,10 +151,18 @@ function renderTriangulo(base,hip,ang){
     return[d1, d2, h]
 }
 
-function valueRenderTriangle(l1, l2, l3, a1, a2, a3){
-    let arr=[]
-    let arrAux=[[l1,a1], [l2,a2], [l3,a3]]
-    arrAux.sort()
-    arr= renderTriangulo(arrAux[2][0],arrAux[1][0],arrAux[0][1])
+// function valueRenderTriangle(arr){//corregir acá
+//     arr= renderTriangulo(arrAux[2][0],arrAux[1][0],arrAux[0][1])
+//     return arr
+// }
+
+function ordenarArray(arr){
+    arr[0][0]= parseInt(arr[0][0]*100)
+    arr[1][0]= parseInt(arr[1][0]*100)
+    arr[2][0]= parseInt(arr[2][0]*100)
+    arr.sort()
+    arr[0][0]= (arr[0][0]/100)
+    arr[1][0]= (arr[1][0]/100)
+    arr[2][0]= (arr[2][0]/100)
     return arr
 }
