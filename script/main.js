@@ -139,30 +139,41 @@ function convertirSexagesimal(dato){
 };
 
 function renderTriangulo(base,hip,ang){
-    let seno = calcularSin(ang)
-    let coseno = calcularCos(ang)
-    let opuesto = (seno*hip)
-    let adyacente1 = (coseno*hip)
-    let adyacente2 = (base-adyacente1)
-    let h = ((240*opuesto)/base).toFixed(0)
-    let d1 = ((240*adyacente1)/base).toFixed(0)
-    let d2 = ((240*adyacente2)/base).toFixed(0)
+    let seno = calcularSin(ang);
+    let opuesto = (seno*hip);
+    let adyacente1 = (Math.sqrt((hip*hip)-(opuesto*opuesto)));
+    let adyacente2 = (base-adyacente1);
+    let h = parseInt((240*opuesto)/base);
+    let d1 = parseInt((240*adyacente1)/base);
+    let d2 = parseInt((240*adyacente2)/base);
 
     return[d1, d2, h]
-}
-
-// function valueRenderTriangle(arr){//corregir acá
-//     arr= renderTriangulo(arrAux[2][0],arrAux[1][0],arrAux[0][1])
-//     return arr
-// }
+};
 
 function ordenarArray(arr){
-    arr[0][0]= parseInt(arr[0][0]*100)
-    arr[1][0]= parseInt(arr[1][0]*100)
-    arr[2][0]= parseInt(arr[2][0]*100)
-    arr.sort()
-    arr[0][0]= (arr[0][0]/100)
-    arr[1][0]= (arr[1][0]/100)
-    arr[2][0]= (arr[2][0]/100)
-    return arr
-}
+    let arrAux=arr;
+    arrAux[0][0]=parseInt(arr[0][0]*100);
+    arrAux[1][0]=parseInt(arr[1][0]*100);
+    arrAux[2][0]=parseInt(arr[2][0]*100);
+    let Aux2;
+    if (arrAux[0][0]>arrAux[1][0]){
+        aux2=arrAux[0][0];
+        arrAux[0][0]=arrAux[1][0];
+        arrAux[1][0]=aux2;
+        if (arrAux[1][0]>arrAux[2][0]){
+            aux2=arrAux[1][0];
+            arrAux[1][0]=arrAux[2][0];
+            arrAux[2][0]=aux2;
+            if (arrAux[0][0]>arrAux[1][0]){
+                aux2=arrAux[0][0];
+                arrAux[0][0]=arrAux[1][0];
+                arrAux[1][0]=aux2;
+            };
+        };
+    };
+    arrAux[0][0]= (arrAux[0][0]/100);
+    arrAux[1][0]= (arrAux[1][0]/100);
+    arrAux[2][0]= (arrAux[2][0]/100);
+
+    return arrAux
+};
