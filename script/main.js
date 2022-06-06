@@ -79,7 +79,7 @@ function angleToDegree(obj){
 function toDegree(grados,minutos,segundos){
     return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(3));
 }
-
+//Recibe el objto, crea un array con los datos y retorna el codigo para renderizar contenido
 function codeToRender(obj){
     let codigo = '';
     let arr = [
@@ -96,13 +96,11 @@ function codeToRender(obj){
     };
     return false;
 };
-
+//Recibe el codigo de impresion y el objeto validado para insertar en el HTML el contenido
 function renderSolution(code,obj){
-    if(code ==='012') divRenderSolucion.innerHTML = renderBlock012(obj);
+    if(code===false)divRenderSolucion.innerHTML=renderBlockFalse(obj);
+    if(code==='012')divRenderSolucion.innerHTML=renderBlock012(obj);
     //if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
-
-    
-
     MathJax.typesetPromise()
 }
 
@@ -111,13 +109,11 @@ function calcularCos(angulo){
     angulo = parseFloat(Math.cos(angulo*Math.PI/180));
     return angulo;
 };
-
 //ARCO COSENO
 function calcularAcos(angulo){
     angulo = parseFloat(Math.acos(angulo)*180/Math.PI);
     return angulo;
 };
-
 //SENO
 function calcularSin(angulo){
     angulo = parseFloat(Math.sin(angulo*Math.PI/180));
@@ -129,6 +125,7 @@ function calcularAsin(angulo){
     return angulo;
 };
 
+//Retorna el parametro en un array
 function convertirSexagesimal(dato){
     let decimal = (dato*1).toFixed(6);
     let grad = parseInt(decimal);
@@ -137,7 +134,7 @@ function convertirSexagesimal(dato){
     let seg = ((minutoAux-parseInt(minutoAux))*60).toFixed(1);
     return [grad, min, seg]
 };
-
+//retorna 3 datos de los PX para renderizar el triangulo
 function renderTriangulo(base,hip,ang){
     let seno = calcularSin(ang);
     let opuesto = (seno*hip);
@@ -146,10 +143,9 @@ function renderTriangulo(base,hip,ang){
     let h = parseInt((240*opuesto)/base);
     let d1 = parseInt((240*adyacente1)/base);
     let d2 = parseInt((240*adyacente2)/base);
-
     return[d1, d2, h]
 };
-
+//Recibe el array formado por el resultado final de los lados y de los angulos y lo ordena de menor a mayor
 function ordenarArray(arr){
     let arrAux=arr;
     arrAux[0][0]=parseInt(arr[0][0]*100);
@@ -174,6 +170,5 @@ function ordenarArray(arr){
     arrAux[0][0]= (arrAux[0][0]/100);
     arrAux[1][0]= (arrAux[1][0]/100);
     arrAux[2][0]= (arrAux[2][0]/100);
-
     return arrAux
 };
