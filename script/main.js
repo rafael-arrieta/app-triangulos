@@ -100,7 +100,7 @@ function codeToRender(obj){
 function renderSolution(code,obj){
     if(code===false)divRenderSolucion.innerHTML=renderBlockFalse(obj);
     if(code==='012')divRenderSolucion.innerHTML=renderBlock012(obj);
-    //if (code === '013') divRenderSolucion.innerHTML = renderBlock013(obj);
+    if(code==='013')divRenderSolucion.innerHTML=renderBlock013(obj);
     MathJax.typesetPromise()
 }
 
@@ -172,3 +172,21 @@ function ordenarArray(arr){
     arrAux[2][0]= (arrAux[2][0]/100);
     return arrAux
 };
+//imprimir contenido
+
+$(document).ready(function($) { 
+    $(document).on('click', '.btn_print', function(event) {//el boton va con una class
+        event.preventDefault();
+        let element = document.getElementById('print-container');// aca va el DIV a renderizar
+        let options = {
+            margin:       1,
+            filename:     'pageContent_'+js.AutoCode()+'.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(options).from(element).save();
+    });
+});
+
+//<div><button id="rep" value="Print" class="btn_print">hola</button></div>
