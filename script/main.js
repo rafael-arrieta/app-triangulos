@@ -180,7 +180,7 @@ $(document).ready(function($) {
         let element = document.getElementById('print-container');// aca va el DIV a renderizar
         let options = {
             margin:       1,
-            filename:     'pageContent_'+js.AutoCode()+'.pdf',
+            filename:     'App-Triangulos_'+js.AutoCode()+'.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }

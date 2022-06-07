@@ -170,6 +170,7 @@ input[type=number] {
 
 .interno-5{
     width: 100%;
+    max-width: 340px;
     padding-bottom: 15px;
     display: grid;
     grid-template-columns: 1fr 240px 1fr;
