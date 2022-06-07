@@ -85,7 +85,13 @@ function renderBlock012(obj){
                     border-left: ${arrDibujo[1]}px solid rgb(255, 187, 119);"></div>
                     </div>
                 </div>
-                <div><button id="rep" value="Print" class="btn_print">hola</button></div>
+
+                <div class="div-resolver" style="margin-top: 15px;">
+                <button id="rep" value="Print" class="btn-resolver btn_print">to ka me!</button>
+                </div>
+
+
+                
             </div>`    
         return block012
     }else{
