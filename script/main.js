@@ -179,10 +179,10 @@ $(document).ready(function($) {
         event.preventDefault();
         let element = document.getElementById('print-container');// aca va el DIV a renderizar
         let options = {
-            margin:       12,
+            margin:       [6, 12, 0, 12],
             filename:     'App-Triangulos_'+js.AutoCode()+'.pdf',
-            image:        { type: 'text', quality: 0.98 },
-            html2canvas:  { scale: 1 },
+            image:        { type: 'png', quality: 1.5},//0.98 },
+            html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         html2pdf().set(options).from(element).save();
