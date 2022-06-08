@@ -159,19 +159,23 @@ function ordenarArray(arr){
     arrAux[0][0]=parseInt(arr[0][0]*100);
     arrAux[1][0]=parseInt(arr[1][0]*100);
     arrAux[2][0]=parseInt(arr[2][0]*100);
-    let Aux2;
+    
+    let aux2;
     if (arrAux[0][0]>arrAux[1][0]){
         aux2=arrAux[0];
         arrAux[0]=arrAux[1];
         arrAux[1]=aux2;
+        console.log(aux2);
         if (arrAux[1][0]>arrAux[2][0]){
             aux2=arrAux[1];
             arrAux[1]=arrAux[2];
             arrAux[2]=aux2;
+            console.log(aux2);
             if (arrAux[0][0]>arrAux[1][0]){
                 aux2=arrAux[0];
                 arrAux[0]=arrAux[1];
                 arrAux[1]=aux2;
+                console.log(aux2);
             };
         };
     };
