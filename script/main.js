@@ -16,6 +16,7 @@ function ejecutarProceso(){
     datos = angleToDegree(datos)
     let codigo = codeToRender(datos);
     renderSolution(codigo,datos);
+    MathJax.typesetPromise()
 }
 
 function removeTypos(){

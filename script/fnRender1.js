@@ -113,17 +113,24 @@ function renderBlock012(obj){
 }
 
 function renderBlock013(obj){
+
+    //
+    let senoAlfa = calcularSin(obj.degreeA).toFixed(3)
+    let divisionAux1 = (senoAlfa/obj.ladoA).toFixed(3)
+    let multiplAux1 =((senoAlfa/obj.ladoA)*obj.ladoB).toFixed(3)
       
             let block013=`<div class="interno-solucion">
+            
             <p class="texto-solucion1">Teorema del seno:</p>
             <p class="texto-solucion2">
 
             $$\\frac{A}{\sen(\\alpha)}=\\frac{B}{\sen(\\beta)}=$$
             $$\\frac{${obj.ladoA}}{\sen(${obj.degreeA})}=\\frac{${obj.ladoB}}{\sen(\\beta)}=$$
             $$\\frac{${obj.ladoA}}{\sen( ${obj.degreeA})}\\cdot \sen (\\beta)=${obj.ladoB}$$
-
-            
-            
+            $$\sen (\\beta) = ${obj.ladoB}\\cdot \\frac{\sen( ${obj.degreeA})}{${obj.ladoA}}$$
+            $$\sen (\\beta) = ${obj.ladoB}\\cdot \\frac{( ${senoAlfa})}{${obj.ladoA}}$$
+            $$\sen (\\beta) = ${obj.ladoB}\\cdot ${divisionAux1}$$
+            $$\\beta = \sen^{-1}(${multiplAux1})$$
             </p>
             `
             return block013
