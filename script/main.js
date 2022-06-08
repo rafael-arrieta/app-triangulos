@@ -3,13 +3,20 @@ let divRenderError = document.getElementById('render-error');
 let divRenderSolucion = document.getElementById('render-solucion');
 
 btnResolver.addEventListener('click', ()=>{
+    ejecutarProceso()
+})   
+btnResolver.addEventListener("keypress", function(event){
+    if (event.key==="Enter") ejecutarProceso()      
+})
+
+function ejecutarProceso(){
     removeTypos()
     let datos = estructuraDatos()
     removeCeros()
     datos = angleToDegree(datos)
     let codigo = codeToRender(datos);
     renderSolution(codigo,datos);
-});
+}
 
 function removeTypos(){
     let allInputs = document.getElementsByClassName('input-dato')
