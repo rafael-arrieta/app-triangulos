@@ -54,11 +54,11 @@ function renderBlock012(obj){
             let dosAC=(-2*obj.ladoA*obj.ladoC).toFixed(2)
             let restaAux1=(squaredA-squaredB-squaredC).toFixed(2)
             let restaAux2=(squaredB-squaredA-squaredC).toFixed(2)
-            let divisionAux1=(restaAux1/dosBC).toFixed(3)
-            let divisionAux2=(restaAux2/dosAC).toFixed(3)
-            let resultado1 = calcularAcos(divisionAux1).toFixed(3)
-            let resultado2 = calcularAcos(divisionAux2).toFixed(3)
-            let resultado3 = (180 - resultado1 - resultado2).toFixed(3)
+            let divisionAux1=(restaAux1/dosBC)
+            let divisionAux2=(restaAux2/dosAC)
+            let resultado1 = calcularAcos(divisionAux1).toFixed(8)
+            let resultado2 = calcularAcos(divisionAux2).toFixed(8)
+            let resultado3 = (180 - resultado1 - resultado2).toFixed(8)
             let alfa = convertirSexagesimal(resultado1)
             let beta = convertirSexagesimal(resultado2)
             let gamma = convertirSexagesimal(resultado3)
@@ -78,7 +78,7 @@ function renderBlock012(obj){
                     $$${squaredA} = ${squaredB} + ${squaredC} ${dosBC} \\cdot \\cos(\\alpha)$$
                     $$${squaredA} - ${squaredB} - ${squaredC} =  ${dosBC}.\\cos(\\alpha)$$
                     $$ {${restaAux1} \\over ${dosBC}} =\\cos(\\alpha)$$
-                    $$ \\cos^{-1}(${divisionAux1})= \\alpha$$
+                    $$ \\cos^{-1}(${(divisionAux1).toFixed(3)})= \\alpha$$
                     $$ \\alpha = ${resultado1}$$
                     $$ \\alpha = ${alfa[0]} º ${alfa[1]} ' ${alfa[2]} "$$</p>
                 <p class="texto-solucion1">Teorema del coseno:</p>

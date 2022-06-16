@@ -85,7 +85,7 @@ function angleToDegree(obj){
 }
 
 function toDegree(grados,minutos,segundos){
-    return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(3));
+    return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(8));
 }
 //Recibe el objto, crea un array con los datos y retorna el codigo para renderizar contenido
 function codeToRender(obj){
