@@ -45,25 +45,25 @@ function renderBlock012(obj){
     if (obj.ladoA-obj.ladoB<obj.ladoC && obj.ladoA+obj.ladoB>obj.ladoC &&
         obj.ladoA-obj.ladoC<obj.ladoB && obj.ladoA+obj.ladoC>obj.ladoB &&
         obj.ladoC-obj.ladoB<obj.ladoA && obj.ladoC+obj.ladoB>obj.ladoA){
-            let squaredA=(obj.ladoA*obj.ladoA).toFixed(2)
-            let squaredB=(obj.ladoB*obj.ladoB).toFixed(2)
-            let squaredC=(obj.ladoC*obj.ladoC).toFixed(2)
-            let dosBC=(-2*obj.ladoB*obj.ladoC).toFixed(2)
-            let dosAC=(-2*obj.ladoA*obj.ladoC).toFixed(2)
-            let restaAux1=(squaredA-squaredB-squaredC)
-            let restaAux2=(squaredB-squaredA-squaredC)
-            let divisionAux1=(restaAux1/dosBC)
-            let divisionAux2=(restaAux2/dosAC)
-            let resultado1 = calcularAcos(divisionAux1)
-            let resultado2 = calcularAcos(divisionAux2)
-            let resultado3 = (180 - resultado1 - resultado2)
-            let alfa = convertirSexagesimal(resultado1)
-            let beta = convertirSexagesimal(resultado2)
-            let gamma = convertirSexagesimal(resultado3)
-            let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,resultado2],[obj.ladoC,resultado3]]
-            arrLados=ordenarArray(arrLados)
-            let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
-            let triangulo = printTrianguloNaranja(arrDibujo,arrLados)
+            let squaredA=(obj.ladoA*obj.ladoA).toFixed(2);
+            let squaredB=(obj.ladoB*obj.ladoB).toFixed(2);
+            let squaredC=(obj.ladoC*obj.ladoC).toFixed(2);
+            let dosBC=(-2*obj.ladoB*obj.ladoC).toFixed(2);
+            let dosAC=(-2*obj.ladoA*obj.ladoC).toFixed(2);
+            let restaAux1=(squaredA-squaredB-squaredC);
+            let restaAux2=(squaredB-squaredA-squaredC);
+            let divisionAux1=(restaAux1/dosBC);
+            let divisionAux2=(restaAux2/dosAC);
+            let resultado1 = calcularAcos(divisionAux1);
+            let resultado2 = calcularAcos(divisionAux2);
+            let resultado3 = (180 - resultado1 - resultado2);
+            let alfa = convertirSexagesimal(resultado1);
+            let beta = convertirSexagesimal(resultado2);
+            let gamma = convertirSexagesimal(resultado3);
+            let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,resultado2],[obj.ladoC,resultado3]];
+            arrLados=ordenarArray(arrLados);
+            let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
+            let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
             let block012=`
             <div class="interno-solucion" id="print-container">
                 <p class="texto-solucion1">Teorema del coseno:</p>
@@ -92,7 +92,7 @@ function renderBlock012(obj){
                     $$ \\gamma = 180 - \\alpha - \\beta$$
                     $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
                     $$ \\gamma = ${(resultado3).toFixed(3)}$$
-                    //$$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+                    $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1"></p>
                 ${triangulo}
             </div>
@@ -116,19 +116,19 @@ function renderBlock012(obj){
 
 function renderBlock013(obj){
 
-    let senoAlfa = calcularSin(obj.degreeA)
-    let divisionAux1 = (obj.ladoA/senoAlfa)
-    let divisionAux2=(obj.ladoB/divisionAux1) 
-    let resultado1 = calcularAsin(divisionAux2)
-    let resultado2 = (180 - resultado1 - obj.degreeA)
+    let senoAlfa = calcularSin(obj.degreeA);
+    let divisionAux1 = (obj.ladoA/senoAlfa);
+    let divisionAux2=(obj.ladoB/divisionAux1);
+    let resultado1 = calcularAsin(divisionAux2);
+    let resultado2 = (180 - resultado1 - obj.degreeA);
     let senoGamma = calcularSin(resultado2);
     let resultadoC = (divisionAux1*senoGamma);
-    let beta = convertirSexagesimal(resultado1)
-    let gamma = convertirSexagesimal(resultado2)
-    let arrLados=[[obj.ladoA,obj.degreeA],[obj.ladoB,resultado1],[resultadoC,resultado2]]
-    arrLados=ordenarArray(arrLados)
-    let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
-    let triangulo = printTrianguloNaranja(arrDibujo,arrLados)
+    let beta = convertirSexagesimal(resultado1);
+    let gamma = convertirSexagesimal(resultado2);
+    let arrLados=[[obj.ladoA,obj.degreeA],[obj.ladoB,resultado1],[resultadoC,resultado2]];
+    arrLados=ordenarArray(arrLados);
+    let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
+    let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
 
     if( divisionAux2>0 && divisionAux2<1){
         let block013=`<div class="interno-solucion" id="print-container">
@@ -176,26 +176,19 @@ function renderBlock013(obj){
 
 function renderBlock014(obj){
     let senoBeta = calcularSin(obj.degreeB);
-    //console.log(senoBeta);
-    let divisionAux1 = (obj.ladoB/senoBeta)
-    //console.log(divisionAux1);
-    let divisionAux2=(obj.ladoA/divisionAux1) 
-    //console.log(divisionAux2);
-    let resultado1 = calcularAsin(divisionAux2)
-    //console.log(resultado1);
-    let resultado2 = (180 - resultado1 - obj.degreeB)
-    //console.log(resultado2);
+    let divisionAux1 = (obj.ladoB/senoBeta);
+    let divisionAux2=(obj.ladoA/divisionAux1);
+    let resultado1 = calcularAsin(divisionAux2);
+    let resultado2 = (180 - resultado1 - obj.degreeB);
     let senoAlfa = calcularSin(resultado1);
     let senoGamma = calcularSin(resultado2);
     let resultadoC = (divisionAux1*senoGamma);
-    let alfa = convertirSexagesimal(resultado1)
-    let gamma = convertirSexagesimal(resultado2)
-
-    let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,obj.degreeB],[resultadoC,resultado2]]
-    arrLados=ordenarArray(arrLados)
-    console.log(arrLados);
-    let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
-    let triangulo = printTrianguloNaranja(arrDibujo,arrLados)
+    let alfa = convertirSexagesimal(resultado1);
+    let gamma = convertirSexagesimal(resultado2);
+    let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,obj.degreeB],[resultadoC,resultado2]];
+    arrLados=ordenarArray(arrLados);
+    let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
+    let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
 
     if( divisionAux2>0 && divisionAux2<1){
         let block014=`<div class="interno-solucion" id="print-container">
@@ -241,4 +234,63 @@ function renderBlock014(obj){
         </div>`
         return block014  
     }
+}
+
+function renderBlock015(obj){
+    
+            let squaredA=(obj.ladoA*obj.ladoA).toFixed(2);
+            let squaredB=(obj.ladoB*obj.ladoB).toFixed(2);
+            let dosAB=(-2*obj.ladoA*obj.ladoB).toFixed(2);
+            let cosenoGamma = calcularCos(obj.degreeC).toFixed(9);
+            let multiplicacionAux1 = (dosAB*cosenoGamma);
+            let sumaAux1 = parseFloat(squaredA)+parseFloat(squaredB)+parseFloat(multiplicacionAux1);
+            let resultado1 = Math.sqrt(sumaAux1);
+            let squaredC=(resultado1*resultado1).toFixed(2);
+            let dosBC = (-2*resultado1*obj.ladoB).toFixed(2);
+            let restaAux1=(squaredA-squaredB-squaredC);
+            let divisionAux1=(restaAux1/dosBC);
+            let resultado2 = calcularAcos(divisionAux1);
+            let resultado3 = (180 - obj.degreeC - resultado2);
+            let alfa = convertirSexagesimal(resultado2);
+            let gamma = convertirSexagesimal(obj.degreeC);
+            let arrLados=[[obj.ladoA,resultado2],[obj.ladoB,resultado3],[resultado1,obj.degreeC]];
+            arrLados=ordenarArray(arrLados);
+            let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
+            let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
+            let block015=`
+            
+            <div class="interno-solucion" id="print-container">
+                <p class="texto-solucion1">Teorema del coseno:</p>
+                <p class="texto-solucion2">
+                    $$C^2 = A^2 + B^2 - 2.A.B.\\cos(\\gamma)$$
+                    $$C^2 = ${obj.ladoA}^2 + ${obj.ladoB}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoB} \\cdot \\cos(${obj.degreeC})$$
+                    $$C^2 = ${squaredA} + ${squaredB} ${dosAB} \\cdot${(parseFloat(cosenoGamma)).toFixed(3)}$$
+                    $$C^2 = ${squaredA} + ${squaredB} ${multiplicacionAux1.toFixed(3)}$$
+                    $$C^2 = ${sumaAux1.toFixed(3)}$$
+                    $$C = \\sqrt{${sumaAux1.toFixed(3)}}$$
+                    $$C = ${resultado1.toFixed(3)}$$</p>
+
+                <p class="texto-solucion1">Teorema del coseno:</p>
+                <p class="texto-solucion2">
+                    $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
+                    $$${obj.ladoA}^2 = ${obj.ladoB}^2 + ${resultado1.toFixed(3)}^2  - 2 \\cdot ${obj.ladoB} \\cdot ${resultado1.toFixed(3)} \\cdot \\cos(\\alpha)$$
+                    $$${squaredA} = ${squaredB} + ${squaredC} ${dosBC} \\cdot \\cos(\\alpha)$$
+                    $$${squaredA} - ${squaredB} - ${squaredC} =  ${dosBC}.\\cos(\\alpha)$$
+                    $$ {${restaAux1} \\over ${dosBC}} =\\cos(\\alpha)$$
+                    $$ \\cos^{-1}(${(divisionAux1).toFixed(3)})= \\alpha$$
+                    $$ \\alpha = ${(resultado2).toFixed(3)}$$
+                    $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
+
+                <p class="texto-solucion1">Ángulos internos:</p>
+                        <p class="texto-solucion2">
+                        $$ 180 = \\alpha + \\beta + \\gamma$$
+                        $$ \\gamma = 180 - \\alpha - \\beta$$
+                        $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
+                        $$ \\gamma = ${(resultado3).toFixed(3)}$$
+                        $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+                <p class="texto-solucion1"></p>
+                ${triangulo}   
+            </div>
+            `    
+        return block015;   
 }

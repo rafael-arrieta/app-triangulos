@@ -97,7 +97,7 @@ function codeToRender(obj){
         obj.degreeB,
         obj.degreeC,
     ];
-    for(let i = 0; i < arr.length; i++){
+    for(let i = 0; i <= arr.length; i++){
         if(codigo.length === 3) return codigo;
         if(arr[i] > 0) codigo += i;
     };
@@ -109,8 +109,10 @@ function renderSolution(code,obj){
     if(code==='012')divRenderSolucion.innerHTML=renderBlock012(obj);
     if(code==='013')divRenderSolucion.innerHTML=renderBlock013(obj);
     if(code==='014')divRenderSolucion.innerHTML=renderBlock014(obj);
-
+    if(code==='015')divRenderSolucion.innerHTML=renderBlock015(obj);
+    
     MathJax.typesetPromise();
+    console.log(code);
 }
 
 //COSENO 
@@ -183,7 +185,7 @@ function ordenarArray(arr){
 
 $(document).ready(function($) { 
     $(document).on('click', '.btn_print', function(event) {//el boton va con una class
-        console.log('prinr');
+        
         event.preventDefault();
         let element = document.getElementById('print-container');// aca va el DIV a renderizar
         let options = {
@@ -194,5 +196,6 @@ $(document).ready(function($) {
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         html2pdf().set(options).from(element).save();
+        
     });
 });
