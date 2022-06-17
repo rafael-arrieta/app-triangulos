@@ -101,6 +101,12 @@ function renderBlock012(obj){
         let block012=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
         <p class="render-error">condición de existencia de un triángulo</p>
+
+        <p class="texto-solucion2">
+        $$ |B - C \\hspace{4px}| < A < B + C $$
+        $$ |A - C \\hspace{4px}|< B < A + C $$
+        $$ |A - B \\hspace{4px}|< C < A + B $$
+
         <p class="texto-solucion1"></p>
         </div>`
         return block012
@@ -159,7 +165,7 @@ function renderBlock013(obj){
         let block013=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
         <p class="render-error">condición de existencia de un triángulo</p>
-        <p class="texto-solucion1"> Error en:</p>
+
         <p class="texto-solucion2">
         $$\\beta = \sen^{-1} \\left(B \\cdot \\frac{\sen(\\alpha)}{A}\\right)$$
         $$ 0 < \\left( B \\cdot \\frac{\sen(\\alpha)}{A}\\right) < 1$$
