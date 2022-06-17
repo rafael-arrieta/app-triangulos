@@ -216,7 +216,7 @@ function renderBlock014(obj){
                 $$ \\gamma = 180 - \\alpha - \\beta$$
                 $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(obj.degreeB).toFixed(3)}$$
                 $$ \\gamma = ${(resultado2).toFixed(3)}$$
-                //$$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+                $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
             <p class="texto-solucion1">Teorema del seno:</p>
             <p class="texto-solucion2">
                 $$\\frac{A}{\sen(\\alpha)}=\\frac{C}{\sen(\\gamma)}$$
