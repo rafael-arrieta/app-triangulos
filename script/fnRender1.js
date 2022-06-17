@@ -34,7 +34,7 @@ function printTrianguloNaranja(dibujo,lados){
             <p style="padding-bottom: 5px;"></p>
         </div>
         <div class="div-resolver" style="margin-top: 15px;">
-            <button id="rep" value="Print" class="btn-resolver btn_print">to ka me!</button>
+            <button id="rep" value="Print" class="btn-resolver btn_print">expotar a PDF!</button>
         </div>
     </div>
     `
@@ -75,7 +75,7 @@ function renderBlock012(obj){
                     $$ {${restaAux1} \\over ${dosBC}} =\\cos(\\alpha)$$
                     $$ \\cos^{-1}(${(divisionAux1).toFixed(5)})= \\alpha$$
                     $$ \\alpha = ${(resultado1).toFixed(5)}$$
-                    $$ \\alpha = ${alfa[0]} º ${alfa[1]} ' ${alfa[2]} "$$</p>
+                    $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1">Teorema del coseno:</p>
                 <p class="texto-solucion2">
                     $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
@@ -85,14 +85,15 @@ function renderBlock012(obj){
                     $$ {${restaAux2} \\over ${dosAC}} =\\cos(\\beta)$$
                     $$ \\cos^{-1}(${(divisionAux2.toFixed(5))})= \\beta$$
                     $$ \\beta = ${(resultado2.toFixed(5))}$$
-                    $$ \\beta = ${beta[0]} º ${beta[1]} ' ${beta[2]} "$$</p>
+                    $$ \\beta = ${beta[0]}\\hspace{1px}º\\hspace{4px}${beta[1]}\\hspace{1px}'\\hspace{4px}${beta[2]}\\hspace{2px}''$$</p>
                     <p class="texto-solucion1">Ángulos internos:</p>
                     <p class="texto-solucion2">
                     $$ 180 = \\alpha + \\beta + \\gamma$$
                     $$ \\gamma = 180 - \\alpha - \\beta$$
                     $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
                     $$ \\gamma = ${(resultado3).toFixed(3)}$$
-                    $$ \\gamma = ${gamma[0]}º${gamma[1]}'${gamma[2]} $$</p>
+                    //$$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+                <p class="texto-solucion1"></p>
                 ${triangulo}
             </div>
             `    
@@ -116,7 +117,6 @@ function renderBlock012(obj){
 function renderBlock013(obj){
 
     let senoAlfa = calcularSin(obj.degreeA)
-    
     let divisionAux1 = (obj.ladoA/senoAlfa)
     let divisionAux2=(obj.ladoB/divisionAux1) 
     let resultado1 = calcularAsin(divisionAux2)
@@ -125,14 +125,13 @@ function renderBlock013(obj){
     let resultadoC = (divisionAux1*senoGamma);
     let beta = convertirSexagesimal(resultado1)
     let gamma = convertirSexagesimal(resultado2)
-
     let arrLados=[[obj.ladoA,obj.degreeA],[obj.ladoB,resultado1],[resultadoC,resultado2]]
     arrLados=ordenarArray(arrLados)
     let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
     let triangulo = printTrianguloNaranja(arrDibujo,arrLados)
 
     if( divisionAux2>0 && divisionAux2<1){
-        let block013=`<div class="interno-solucion">
+        let block013=`<div class="interno-solucion" id="print-container">
             <p class="texto-solucion1">Teorema del seno:</p>
             <p class="texto-solucion2">
                 $$\\frac{A}{\sen(\\alpha)}=\\frac{B}{\sen(\\beta)}$$
@@ -142,40 +141,104 @@ function renderBlock013(obj){
                 $$\sen (\\beta) = \\frac{${obj.ladoB}}{(${(divisionAux1).toFixed(3)})}$$
                 $$\\beta = \sen^{-1}(${(divisionAux2).toFixed(3)})$$
                 $$\\beta = ${(resultado1).toFixed(3)}$$
-                $$ \\beta = ${beta[0]} º ${beta[1]} ' ${beta[2]} "$$</p>
+                $$ \\beta = ${beta[0]}\\hspace{1px}º\\hspace{4px}${beta[1]}\\hspace{1px}'\\hspace{4px}${beta[2]}\\hspace{2px}''$$</p>
             <p class="texto-solucion1">Ángulos internos:</p>
             <p class="texto-solucion2">
                 $$ 180 = \\alpha + \\beta + \\gamma$$
                 $$ \\gamma = 180 - \\alpha - \\beta$$
                 $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(obj.degreeA).toFixed(3)}$$
                 $$ \\gamma = ${(resultado2).toFixed(3)}$$
-                $$ \\gamma = ${gamma[0]}º${gamma[1]}'${gamma[2]} $$</p>
+                $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
             <p class="texto-solucion1">Teorema del seno:</p>
             <p class="texto-solucion2">
                     $$\\frac{A}{\sen(\\alpha)}=\\frac{C}{\sen(\\gamma)}$$
                     $$\\frac{${obj.ladoA}}{\sen(${(obj.degreeA).toFixed(3)})}=\\frac{C}{\sen(${resultado2.toFixed(3)})}$$
                     $$\\frac{${obj.ladoA}}{(${(senoAlfa).toFixed(3)})}=\\frac{C}{(${senoGamma.toFixed(3)})}$$
                     $$${(divisionAux1).toFixed(3)}\\cdot (${senoGamma.toFixed(3)}) = C $$
-                    $$ C = ${resultadoC.toFixed(3)} $$
+                    $$ C = ${resultadoC.toFixed(3)} $$</p>
                 ${triangulo}
-            </div>
-        `
+            <p class="texto-solucion1"></p>
+            </div>`
         return block013
     }else{
         let block013=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
         <p class="render-error">condición de existencia de un triángulo</p>
-
         <p class="texto-solucion2">
         $$\\beta = \sen^{-1} \\left(B \\cdot \\frac{\sen(\\alpha)}{A}\\right)$$
         $$ 0 < \\left( B \\cdot \\frac{\sen(\\alpha)}{A}\\right) < 1$$
+        </p>
         <p class="texto-solucion1"></p>
-        <p class="texto-solucion2">
-        
         </div>`
-        return block013
-    //
+        return block013  
+    }
+}
 
-        
+function renderBlock014(obj){
+    let senoBeta = calcularSin(obj.degreeB);
+    //console.log(senoBeta);
+    let divisionAux1 = (obj.ladoB/senoBeta)
+    //console.log(divisionAux1);
+    let divisionAux2=(obj.ladoA/divisionAux1) 
+    //console.log(divisionAux2);
+    let resultado1 = calcularAsin(divisionAux2)
+    //console.log(resultado1);
+    let resultado2 = (180 - resultado1 - obj.degreeB)
+    //console.log(resultado2);
+    let senoAlfa = calcularSin(resultado1);
+    let senoGamma = calcularSin(resultado2);
+    let resultadoC = (divisionAux1*senoGamma);
+    let alfa = convertirSexagesimal(resultado1)
+    let gamma = convertirSexagesimal(resultado2)
+
+    let arrLados=[[obj.ladoA,resultado1],[obj.ladoB,obj.degreeB],[resultadoC,resultado2]]
+    arrLados=ordenarArray(arrLados)
+    console.log(arrLados);
+    let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1])
+    let triangulo = printTrianguloNaranja(arrDibujo,arrLados)
+
+    if( divisionAux2>0 && divisionAux2<1){
+        let block014=`<div class="interno-solucion" id="print-container">
+            <p class="texto-solucion1">Teorema del seno:</p>
+            <p class="texto-solucion2">
+                $$\\frac{A}{\sen(\\alpha)}=\\frac{B}{\sen(\\beta)}$$
+                $$\\frac{${obj.ladoA}}{\sen(\\alpha)}=\\frac{${obj.ladoB}}{\sen(${(obj.degreeB).toFixed(3)})}$$
+                $$\\frac{${obj.ladoA}}{\sen(\\alpha)}=\\frac{${obj.ladoB}}{(${senoBeta.toFixed(3)})}$$
+                $$${obj.ladoA}=(${divisionAux1.toFixed(3)})\\cdot \sen (\\alpha)$$
+                $$\\frac{${obj.ladoA}}{(${divisionAux1.toFixed(3)})} = \sen (\\alpha)$$
+                $$(${divisionAux2.toFixed(3)}) = \sen (\\alpha)$$
+                $$\sen^{-1}(${divisionAux2.toFixed(3)}) = \\alpha$$
+                $$\\alpha = ${(resultado1).toFixed(3)}$$
+                $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
+            <p class="texto-solucion1">Ángulos internos:</p>
+            <p class="texto-solucion2">
+                $$ 180 = \\alpha + \\beta + \\gamma$$
+                $$ \\gamma = 180 - \\alpha - \\beta$$
+                $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(obj.degreeB).toFixed(3)}$$
+                $$ \\gamma = ${(resultado2).toFixed(3)}$$
+                //$$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+            <p class="texto-solucion1">Teorema del seno:</p>
+            <p class="texto-solucion2">
+                $$\\frac{A}{\sen(\\alpha)}=\\frac{C}{\sen(\\gamma)}$$
+                $$\\frac{${obj.ladoA}}{\sen(${(resultado1).toFixed(3)})}=\\frac{C}{\sen(${resultado2.toFixed(3)})}$$
+                $$\\frac{${obj.ladoA}}{(${(senoAlfa).toFixed(3)})}=\\frac{C}{(${senoGamma.toFixed(3)})}$$
+                $$${(divisionAux1).toFixed(3)}\\cdot(${senoGamma.toFixed(3)}) = C $$
+                $$C=${resultadoC.toFixed(3)}$$</p>
+            <p class="texto-solucion1"></p>
+            ${triangulo}
+        </div>
+        `
+        return block014
+    }else{
+        let block014=`<div class="interno-solucion">
+        <p class="render-error">Medida de lados incorrecta por</p>
+        <p class="render-error">condición de existencia de un triángulo</p>
+        <p class="texto-solucion2">
+        $$\\alpha = \sen^{-1} \\left(A \\cdot \\frac{\sen(\\beta)}{B}\\right)$$
+        $$ 0 < \\left( A \\cdot \\frac{\sen(\\beta)}{B}\\right) < 1$$
+        </p>
+        <p class="texto-solucion1"></p>
+        </div>`
+        return block014  
     }
 }

@@ -2,12 +2,9 @@ let btnResolver = document.getElementById('btn-resolver');
 let divRenderError = document.getElementById('render-error');
 let divRenderSolucion = document.getElementById('render-solucion');
 
-btnResolver.addEventListener('click', ()=>{
-    ejecutarProceso()
-})   
-btnResolver.addEventListener("keypress", function(event){
-    if (event.key==="Enter") ejecutarProceso()      
-})
+btnResolver.addEventListener('click', ()=>{ 
+    ejecutarProceso();
+})  
 
 function ejecutarProceso(){
     removeTypos()
@@ -16,8 +13,7 @@ function ejecutarProceso(){
     datos = angleToDegree(datos)
     let codigo = codeToRender(datos);
     renderSolution(codigo,datos);
-    MathJax.typeset()
-}
+};
 
 function removeTypos(){
     let allInputs = document.getElementsByClassName('input-dato')
@@ -112,7 +108,9 @@ function renderSolution(code,obj){
     if(code===false)divRenderSolucion.innerHTML=renderBlockFalse(obj);
     if(code==='012')divRenderSolucion.innerHTML=renderBlock012(obj);
     if(code==='013')divRenderSolucion.innerHTML=renderBlock013(obj);
-    
+    if(code==='014')divRenderSolucion.innerHTML=renderBlock014(obj);
+
+    MathJax.typesetPromise();
 }
 
 //COSENO 
@@ -185,6 +183,7 @@ function ordenarArray(arr){
 
 $(document).ready(function($) { 
     $(document).on('click', '.btn_print', function(event) {//el boton va con una class
+        console.log('prinr');
         event.preventDefault();
         let element = document.getElementById('print-container');// aca va el DIV a renderizar
         let options = {
@@ -197,5 +196,3 @@ $(document).ready(function($) {
         html2pdf().set(options).from(element).save();
     });
 });
-
-//<div><button id="rep" value="Print" class="btn_print">hola</button></div>
