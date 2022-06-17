@@ -34,7 +34,7 @@ function printTrianguloNaranja(dibujo,lados){
             <p style="padding-bottom: 5px;"></p>
         </div>
         <div class="div-resolver" style="margin-top: 15px;">
-            <button id="rep" value="Print" class="btn-resolver btn_print">expotar a PDF!</button>
+            <button id="rep" value="Print" class="btn-resolver btn_print">exportar a PDF!</button>
         </div>
     </div>
     `
