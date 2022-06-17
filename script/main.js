@@ -16,7 +16,7 @@ function ejecutarProceso(){
     datos = angleToDegree(datos)
     let codigo = codeToRender(datos);
     renderSolution(codigo,datos);
-    //MathJax.typesetPromise()
+    MathJax.typeset()
 }
 
 function removeTypos(){
@@ -78,9 +78,12 @@ function angleToDegree(obj){
     obj.degreeA = toDegree(obj.gradA,obj.minA,obj.segA);
     obj.degreeB = toDegree(obj.gradB,obj.minB,obj.segB);
     obj.degreeC = toDegree(obj.gradC,obj.minC,obj.segC);
-    obj.ladoA=parseFloat(obj.ladoA);
-    obj.ladoB=parseFloat(obj.ladoB);
-    obj.ladoC=parseFloat(obj.ladoC);
+    obj.ladoA=parseInt((obj.ladoA)*100)
+    obj.ladoA=((obj.ladoA)/100);
+    obj.ladoB=parseInt((obj.ladoB)*100)
+    obj.ladoB=((obj.ladoB)/100);
+    obj.ladoC=parseInt((obj.ladoC)*100)
+    obj.ladoC=((obj.ladoC)/100);
     return obj
 }
 
@@ -109,7 +112,7 @@ function renderSolution(code,obj){
     if(code===false)divRenderSolucion.innerHTML=renderBlockFalse(obj);
     if(code==='012')divRenderSolucion.innerHTML=renderBlock012(obj);
     if(code==='013')divRenderSolucion.innerHTML=renderBlock013(obj);
-    MathJax.typesetPromise()
+    
 }
 
 //COSENO 
