@@ -110,10 +110,9 @@ function renderSolution(code,obj){
     if(code==='013')divRenderSolucion.innerHTML=renderBlock013(obj);
     if(code==='014')divRenderSolucion.innerHTML=renderBlock014(obj);
     if(code==='015')divRenderSolucion.innerHTML=renderBlock015(obj);
-    
+    if(code==='023')divRenderSolucion.innerHTML=renderBlock023(obj);
     MathJax.typesetPromise();
-    console.log(code);
-}
+};
 
 //COSENO 
 function calcularCos(angulo){
@@ -175,14 +174,12 @@ function ordenarArray(arr){
             {aux2=arrAux[0];
             arrAux[0]=arrAux[1];
             arrAux[1]=aux2;}
-        
     arrAux[0][0]= (arrAux[0][0]/100);
     arrAux[1][0]= (arrAux[1][0]/100);
     arrAux[2][0]= (arrAux[2][0]/100);
     return arrAux
 };
 //imprimir contenido
-
 $(document).ready(function($) { 
     $(document).on('click', '.btn_print', function(event) {//el boton va con una class
         
@@ -196,6 +193,5 @@ $(document).ready(function($) {
             jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
         };
         html2pdf().set(options).from(element).save();
-        
     });
 });

@@ -237,7 +237,6 @@ function renderBlock014(obj){
 }
 
 function renderBlock015(obj){
-    
             let squaredA=(obj.ladoA*obj.ladoA).toFixed(2);
             let squaredB=(obj.ladoB*obj.ladoB).toFixed(2);
             let dosAB=(-2*obj.ladoA*obj.ladoB).toFixed(2);
@@ -252,14 +251,19 @@ function renderBlock015(obj){
             let resultado2 = calcularAcos(divisionAux1);
             let resultado3 = (180 - obj.degreeC - resultado2);
             let alfa = convertirSexagesimal(resultado2);
+            let beta = convertirSexagesimal(resultado3);
             let gamma = convertirSexagesimal(obj.degreeC);
             let arrLados=[[obj.ladoA,resultado2],[obj.ladoB,resultado3],[resultado1,obj.degreeC]];
             arrLados=ordenarArray(arrLados);
             let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
             let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
             let block015=`
-            
             <div class="interno-solucion" id="print-container">
+                <p class="texto-solucion1">Datos:</p>
+                <p class="texto-solucion2">
+                    $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
+                    $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB}$$
+                    $$ Ángulo\\hspace{3px} \\gamma:\\hspace{1px} ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1">Teorema del coseno:</p>
                 <p class="texto-solucion2">
                     $$C^2 = A^2 + B^2 - 2.A.B.\\cos(\\gamma)$$
@@ -269,7 +273,6 @@ function renderBlock015(obj){
                     $$C^2 = ${sumaAux1.toFixed(3)}$$
                     $$C = \\sqrt{${sumaAux1.toFixed(3)}}$$
                     $$C = ${resultado1.toFixed(3)}$$</p>
-
                 <p class="texto-solucion1">Teorema del coseno:</p>
                 <p class="texto-solucion2">
                     $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
@@ -280,14 +283,13 @@ function renderBlock015(obj){
                     $$ \\cos^{-1}(${(divisionAux1).toFixed(3)})= \\alpha$$
                     $$ \\alpha = ${(resultado2).toFixed(3)}$$
                     $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
-
                 <p class="texto-solucion1">Ángulos internos:</p>
                         <p class="texto-solucion2">
                         $$ 180 = \\alpha + \\beta + \\gamma$$
-                        $$ \\gamma = 180 - \\alpha - \\beta$$
-                        $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
-                        $$ \\gamma = ${(resultado3).toFixed(3)}$$
-                        $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+                        $$ \\beta = 180 - \\alpha - \\beta$$
+                        $$ \\beta = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
+                        $$ \\beta = ${(resultado3).toFixed(3)}$$
+                        $$ \\beta = ${beta[0]}\\hspace{1px}º\\hspace{4px}${beta[1]}\\hspace{1px}'\\hspace{4px}${beta[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1"></p>
                 ${triangulo}   
             </div>
