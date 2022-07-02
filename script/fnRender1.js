@@ -123,6 +123,7 @@ function renderBlock013(obj){
     let resultado2 = (180 - resultado1 - obj.degreeA);
     let senoGamma = calcularSin(resultado2);
     let resultadoC = (divisionAux1*senoGamma);
+    let alfa =convertirSexagesimal(obj.degreeA);
     let beta = convertirSexagesimal(resultado1);
     let gamma = convertirSexagesimal(resultado2);
     let arrLados=[[obj.ladoA,obj.degreeA],[obj.ladoB,resultado1],[resultadoC,resultado2]];
@@ -132,6 +133,12 @@ function renderBlock013(obj){
 
     if( divisionAux2>0 && divisionAux2<1){
         let block013=`<div class="interno-solucion" id="print-container">
+            <p class="texto-solucion1">Datos:</p>
+            <p class="texto-solucion2">
+                $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
+                $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB}$$
+                $$ Ángulo\\hspace{3px} \\alpha:\\hspace{1px} ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
+             
             <p class="texto-solucion1">Teorema del seno:</p>
             <p class="texto-solucion2">
                 $$\\frac{A}{\sen(\\alpha)}=\\frac{B}{\sen(\\beta)}$$
