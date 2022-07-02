@@ -372,8 +372,8 @@ function renderBlock023(obj){
         <p class="render-error">Medida de lados incorrecta por</p>
         <p class="render-error">condición de existencia de un triángulo</p>
         <p class="texto-solucion2">
-        $$\\gamma = \sen^{-1} \\left(B \\cdot \\frac{\sen(\\alpha)}{A}\\right)$$
-        $$ 0 < \\left( B \\cdot \\frac{\sen(\\alpha)}{A}\\right) < 1$$
+        $$\\gamma = \sen^{-1} \\left(C \\cdot \\frac{\sen(\\alpha)}{A}\\right)$$
+        $$ 0 < \\left( C \\cdot \\frac{\sen(\\alpha)}{A}\\right) < 1$$
         </p>
         <p class="texto-solucion1"></p>
         </div>`
