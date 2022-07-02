@@ -73,8 +73,8 @@ function renderBlock012(obj){
                     $$${squaredA} = ${squaredB} + ${squaredC} ${dosBC} \\cdot \\cos(\\alpha)$$
                     $$${squaredA} - ${squaredB} - ${squaredC} =  ${dosBC}.\\cos(\\alpha)$$
                     $$ {${restaAux1.toFixed(3)} \\over ${dosBC}} =\\cos(\\alpha)$$
-                    $$ \\cos^{-1}(${divisionAux1.toFixed(2)})= \\alpha$$
-                    $$ \\alpha = ${resultado1.toFixed(2)}$$
+                    $$ \\cos^{-1}(${divisionAux1.toFixed(3)})= \\alpha$$
+                    $$ \\alpha = ${resultado1.toFixed(3)}$$
                     $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1">Teorema del coseno:</p>
                 <p class="texto-solucion2">
