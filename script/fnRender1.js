@@ -64,39 +64,43 @@ function renderBlock012(obj){
             arrLados=ordenarArray(arrLados);
             let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
             let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
-            let block012=`
-            <div class="interno-solucion" id="print-container">
-                <p class="texto-solucion1">Teorema del coseno:</p>
+            let block012=`<div class="interno-solucion" id="print-container">
+                <p class="texto-solucion1">Datos:</p>
                 <p class="texto-solucion2">
-                    $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
-                    $$${obj.ladoA}^2 = ${obj.ladoB}^2 + ${obj.ladoC}^2  - 2 \\cdot ${obj.ladoB} \\cdot ${obj.ladoC} \\cdot \\cos(\\alpha)$$
-                    $$${squaredA} = ${squaredB} + ${squaredC} ${dosBC} \\cdot \\cos(\\alpha)$$
-                    $$${squaredA} - ${squaredB} - ${squaredC} =  ${dosBC}.\\cos(\\alpha)$$
-                    $$ {${restaAux1.toFixed(3)} \\over ${dosBC}} =\\cos(\\alpha)$$
-                    $$ \\cos^{-1}(${divisionAux1.toFixed(3)})= \\alpha$$
-                    $$ \\alpha = ${resultado1.toFixed(3)}$$
-                    $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
+                    $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
+                    $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB}$$
+                    $$ Lado\\hspace{1px} C:\\hspace{1px} ${obj.ladoC}$$
                 <p class="texto-solucion1">Teorema del coseno:</p>
-                <p class="texto-solucion2">
-                    $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
-                    $$${obj.ladoB}^2 = ${obj.ladoA}^2 + ${obj.ladoC}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoC} \\cdot \\cos(\\beta)$$
-                    $$${squaredB} = ${squaredA} + ${squaredC} ${dosAC} \\cdot \\cos(\\beta)$$
-                    $$${squaredB} - ${squaredA} - ${squaredC} =  ${dosAC}.\\cos(\\beta)$$
-                    $$ {${restaAux2} \\over ${dosAC}} =\\cos(\\beta)$$
-                    $$ \\cos^{-1}(${(divisionAux2.toFixed(3))})= \\beta$$
-                    $$ \\beta = ${(resultado2.toFixed(3))}$$
-                    $$ \\beta = ${beta[0]}\\hspace{1px}º\\hspace{4px}${beta[1]}\\hspace{1px}'\\hspace{4px}${beta[2]}\\hspace{2px}''$$</p>
-                    <p class="texto-solucion1">Ángulos internos:</p>
                     <p class="texto-solucion2">
-                    $$ 180 = \\alpha + \\beta + \\gamma$$
-                    $$ \\gamma = 180 - \\alpha - \\beta$$
-                    $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
-                    $$ \\gamma = ${(resultado3).toFixed(3)}$$
-                    $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
-                <p class="texto-solucion1"></p>
-                ${triangulo}
-            </div>
-            `    
+                        $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
+                        $$${obj.ladoA}^2 = ${obj.ladoB}^2 + ${obj.ladoC}^2  - 2 \\cdot ${obj.ladoB} \\cdot ${obj.ladoC} \\cdot \\cos(\\alpha)$$
+                        $$${squaredA} = ${squaredB} + ${squaredC} ${dosBC} \\cdot \\cos(\\alpha)$$
+                        $$${squaredA} - ${squaredB} - ${squaredC} =  ${dosBC}.\\cos(\\alpha)$$
+                        $$ {${restaAux1.toFixed(3)} \\over ${dosBC}} =\\cos(\\alpha)$$
+                        $$ \\cos^{-1}(${divisionAux1.toFixed(3)})= \\alpha$$
+                        $$ \\alpha = ${resultado1.toFixed(3)}$$
+                        $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
+                    <p class="texto-solucion1">Teorema del coseno:</p>
+                    <p class="texto-solucion2">
+                        $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
+                        $$${obj.ladoB}^2 = ${obj.ladoA}^2 + ${obj.ladoC}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoC} \\cdot \\cos(\\beta)$$
+                        $$${squaredB} = ${squaredA} + ${squaredC} ${dosAC} \\cdot \\cos(\\beta)$$
+                        $$${squaredB} - ${squaredA} - ${squaredC} =  ${dosAC}.\\cos(\\beta)$$
+                        $$ {${restaAux2} \\over ${dosAC}} =\\cos(\\beta)$$
+                        $$ \\cos^{-1}(${(divisionAux2.toFixed(3))})= \\beta$$
+                        $$ \\beta = ${(resultado2.toFixed(3))}$$
+                        $$ \\beta = ${beta[0]}\\hspace{1px}º\\hspace{4px}${beta[1]}\\hspace{1px}'\\hspace{4px}${beta[2]}\\hspace{2px}''$$</p>
+                        <p class="texto-solucion1">Ángulos internos:</p>
+                        <p class="texto-solucion2">
+                        $$ 180 = \\alpha + \\beta + \\gamma$$
+                        $$ \\gamma = 180 - \\alpha - \\beta$$
+                        $$ \\gamma = 180 - ${(resultado1).toFixed(3)} - ${(resultado2).toFixed(3)}$$
+                        $$ \\gamma = ${(resultado3).toFixed(3)}$$
+                        $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+                    <p class="texto-solucion1"></p>
+                    ${triangulo}
+                </div>
+                `    
         return block012
     }else{
         let block012=`<div class="interno-solucion">
