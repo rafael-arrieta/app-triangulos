@@ -258,7 +258,7 @@ function renderBlock015(obj){
             let squaredA=(obj.ladoA*obj.ladoA).toFixed(2);
             let squaredB=(obj.ladoB*obj.ladoB).toFixed(2);
             let dosAB=(-2*obj.ladoA*obj.ladoB).toFixed(2);
-            let cosenoGamma = calcularCos(obj.degreeC).toFixed(9);
+            let cosenoGamma = calcularCos(obj.degreeC);
             let multiplicacionAux1 = (dosAB*cosenoGamma);
             let sumaAux1 = parseFloat(squaredA)+parseFloat(squaredB)+parseFloat(multiplicacionAux1);
             let resultado1 = Math.sqrt(sumaAux1);
@@ -280,13 +280,13 @@ function renderBlock015(obj){
                 <p class="texto-solucion1">Datos:</p>
                 <p class="texto-solucion2">
                     $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
-                    $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB.toFixed(3)}$$
+                    $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB}$$
                     $$ Ángulo\\hspace{3px} \\gamma:\\hspace{1px} ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1">Teorema del coseno:</p>
                 <p class="texto-solucion2">
                     $$C^2 = A^2 + B^2 - 2.A.B.\\cos(\\gamma)$$
-                    $$C^2 = ${obj.ladoA}^2 + ${obj.ladoB}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoB} \\cdot \\cos(${obj.degreeC})$$
-                    $$C^2 = ${squaredA} + ${squaredB} ${dosAB} \\cdot${(parseFloat(cosenoGamma)).toFixed(3)}$$
+                    $$C^2 = ${obj.ladoA}^2 + ${obj.ladoB}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoB} \\cdot \\cos(${obj.degreeC.toFixed(3)})$$
+                    $$C^2 = ${squaredA} + ${squaredB} ${dosAB} \\cdot${(cosenoGamma).toFixed(3)}$$
                     $$C^2 = ${squaredA} + ${squaredB} ${multiplicacionAux1.toFixed(3)}$$
                     $$C^2 = ${sumaAux1.toFixed(3)}$$
                     $$C = \\sqrt{${sumaAux1.toFixed(3)}}$$
