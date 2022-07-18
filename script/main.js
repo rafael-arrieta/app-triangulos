@@ -84,7 +84,8 @@ function angleToDegree(obj){
 }
 
 function toDegree(grados,minutos,segundos){
-    return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(8));
+    return parseFloat((parseFloat(grados)+(minutos/60)+(segundos/3600)).toFixed(10));
+    //return parseFloat(grados)+(minutos/60)+(segundos/3600);
 }
 //Recibe el objto, crea un array con los datos y retorna el codigo para renderizar contenido
 function codeToRender(obj){
@@ -137,11 +138,16 @@ function calcularAsin(angulo){
 
 //Retorna el parametro en un array
 function convertirSexagesimal(dato){
-    let decimal = (dato*1).toFixed(6);
+    let decimal = (dato*1).toFixed(10);
+    console.log(decimal);
     let grad = parseInt(decimal);
     let minutoAux = (decimal-parseInt(decimal))*60;
     let min = parseInt(minutoAux)
     let seg = ((minutoAux-parseInt(minutoAux))*60).toFixed(1);
+    if(seg==60){
+        min = min+1;
+        seg = 0;
+    }
     return [grad, min, seg]
 };
 //retorna 3 datos de los PX para renderizar el triangulo

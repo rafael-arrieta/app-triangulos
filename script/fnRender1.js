@@ -121,6 +121,7 @@ function renderBlock012(obj){
 function renderBlock013(obj){
 
     let senoAlfa = calcularSin(obj.degreeA);
+    console.log(obj.degreeA);
     let divisionAux1 = (obj.ladoA/senoAlfa);
     let divisionAux2=(obj.ladoB/divisionAux1);
     let resultado1 = calcularAsin(divisionAux2);
