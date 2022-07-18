@@ -280,7 +280,7 @@ function renderBlock015(obj){
                 <p class="texto-solucion1">Datos:</p>
                 <p class="texto-solucion2">
                     $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
-                    $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB}$$
+                    $$ Lado\\hspace{1px} B:\\hspace{1px} ${obj.ladoB.toFixed(3)}$$
                     $$ Ángulo\\hspace{3px} \\gamma:\\hspace{1px} ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
                 <p class="texto-solucion1">Teorema del coseno:</p>
                 <p class="texto-solucion2">
