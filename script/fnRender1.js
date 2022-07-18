@@ -134,6 +134,7 @@ function renderBlock013(obj){
     arrLados=ordenarArray(arrLados);
     let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
     let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
+    console.log(resultadoC);
 
     if( divisionAux2>0 && divisionAux2<1){
         let block013=`<div class="interno-solucion" id="print-container">
@@ -297,7 +298,7 @@ function renderBlock015(obj){
                     $$${obj.ladoA}^2 = ${obj.ladoB}^2 + ${resultado1.toFixed(3)}^2  - 2 \\cdot ${obj.ladoB} \\cdot ${resultado1.toFixed(3)} \\cdot \\cos(\\alpha)$$
                     $$${squaredA} = ${squaredB} + ${squaredC} ${dosBC} \\cdot \\cos(\\alpha)$$
                     $$${squaredA} - ${squaredB} - ${squaredC} =  ${dosBC}.\\cos(\\alpha)$$
-                    $$ {${restaAux1} \\over ${dosBC}} =\\cos(\\alpha)$$
+                    $$ {${restaAux1.toFixed(3)} \\over ${dosBC}} =\\cos(\\alpha)$$
                     $$ \\cos^{-1}(${(divisionAux1).toFixed(3)})= \\alpha$$
                     $$ \\alpha = ${(resultado2).toFixed(3)}$$
                     $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
