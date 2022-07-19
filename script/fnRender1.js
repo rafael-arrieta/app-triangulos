@@ -1,6 +1,6 @@
 function renderBlockFalse(){
     let blockFalse=`<div class="interno-solucion">
-        <p class="render-error">faltan datos</p>
+        <p class="render-error">Faltan datos</p>
         <p class="texto-solucion1"></p>
         </div>`
         return blockFalse
@@ -105,7 +105,7 @@ function renderBlock012(obj){
     }else{
         let block012=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
-        <p class="render-error">condición de existencia de un triángulo</p>
+        <p class="render-error">Condición de existencia de un triángulo</p>
 
         <p class="texto-solucion2">
         $$ |B - C \\hspace{4px}| < A < B + C $$
@@ -175,7 +175,7 @@ function renderBlock013(obj){
     }else{
         let block013=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
-        <p class="render-error">condición de existencia de un triángulo</p>
+        <p class="render-error">Condición de existencia de un triángulo</p>
         <p class="texto-solucion2">
         $$\\beta = \sen^{-1} \\left(B \\cdot \\frac{\sen(\\alpha)}{A}\\right)$$
         $$ 0 < \\left( B \\cdot \\frac{\sen(\\alpha)}{A}\\right) < 1$$
@@ -244,7 +244,7 @@ function renderBlock014(obj){
     }else{
         let block014=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
-        <p class="render-error">condición de existencia de un triángulo</p>
+        <p class="render-error">Condición de existencia de un triángulo</p>
         <p class="texto-solucion2">
         $$\\alpha = \sen^{-1} \\left(A \\cdot \\frac{\sen(\\beta)}{B}\\right)$$
         $$ 0 < \\left( A \\cdot \\frac{\sen(\\beta)}{B}\\right) < 1$$
@@ -272,6 +272,7 @@ function renderBlock015(obj){
             let alfa = convertirSexagesimal(resultado2);
             let beta = convertirSexagesimal(resultado3);
             let gamma = convertirSexagesimal(obj.degreeC);
+
             let arrLados=[[obj.ladoA,resultado2],[obj.ladoB,resultado3],[resultado1,obj.degreeC]];
             arrLados=ordenarArray(arrLados);
             let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
@@ -288,7 +289,7 @@ function renderBlock015(obj){
                     $$C^2 = A^2 + B^2 - 2.A.B.\\cos(\\gamma)$$
                     $$C^2 = ${obj.ladoA}^2 + ${obj.ladoB}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoB} \\cdot \\cos(${obj.degreeC.toFixed(3)})$$
                     $$C^2 = ${squaredA} + ${squaredB} ${dosAB} \\cdot${(cosenoGamma).toFixed(3)}$$
-                    $$C^2 = ${squaredA} + ${squaredB} ${multiplicacionAux1.toFixed(3)}$$
+                    $$C^2 = ${squaredA} + ${squaredB} +(${multiplicacionAux1.toFixed(3)})$$
                     $$C^2 = ${sumaAux1.toFixed(3)}$$
                     $$C = \\sqrt{${sumaAux1.toFixed(3)}}$$
                     $$C = ${resultado1.toFixed(3)}$$</p>
@@ -334,7 +335,7 @@ function renderBlock023(obj){
     let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
 
     if( divisionAux2>0 && divisionAux2<1){
-        let block013=`<div class="interno-solucion" id="print-container">
+        let block023=`<div class="interno-solucion" id="print-container">
         <p class="texto-solucion1">Datos:</p>
         <p class="texto-solucion2">
             $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
@@ -367,9 +368,9 @@ function renderBlock023(obj){
                 ${triangulo}
             <p class="texto-solucion1"></p>
             </div>`
-        return block013
+        return block023
     }else{
-        let block013=`<div class="interno-solucion">
+        let block023=`<div class="interno-solucion">
         <p class="render-error">Medida de lados incorrecta por</p>
         <p class="render-error">condición de existencia de un triángulo</p>
         <p class="texto-solucion2">
@@ -378,6 +379,67 @@ function renderBlock023(obj){
         </p>
         <p class="texto-solucion1"></p>
         </div>`
-        return block013  
+        return block023  
     }
+}
+
+function renderBlock024(obj){
+    let squaredA=(obj.ladoA*obj.ladoA)
+    let squaredC=(obj.ladoC*obj.ladoC)
+    let dosAC=(-2*obj.ladoA*obj.ladoC)
+    let cosenoBeta = calcularCos(obj.degreeB);
+    let multiplicacionAux1 = (dosAC*cosenoBeta);
+    let sumaAux1 = parseFloat(squaredA)+parseFloat(squaredC)+parseFloat(multiplicacionAux1);
+    let resultadoB = Math.sqrt(sumaAux1);
+    let squaredB=(resultadoB*resultadoB)
+    let dosBC = (-2*resultadoB*obj.ladoC)
+    let restaAux1=(squaredA-squaredB-squaredC);
+    let divisionAux1=(restaAux1/dosBC);
+    let resultado2 = calcularAcos(divisionAux1);
+    let resultado3 = (180 - obj.degreeB - resultado2);
+    let alfa = convertirSexagesimal(resultado2);
+    let beta = convertirSexagesimal(obj.degreeB);
+    let gamma = convertirSexagesimal(resultado3);
+    let arrLados=[[obj.ladoA,resultado2],[obj.ladoC,resultado3],[resultadoB,obj.degreeB]];
+    arrLados=ordenarArray(arrLados);
+    let arrDibujo = renderTriangulo(arrLados[2][0],arrLados[1][0],arrLados[0][1]);
+    let triangulo = printTrianguloNaranja(arrDibujo,arrLados);
+    let block024=`
+    <div class="interno-solucion" id="print-container">
+        <p class="texto-solucion1">Datos:</p>
+        <p class="texto-solucion2">
+            $$ Lado\\hspace{1px} A:\\hspace{1px} ${obj.ladoA}$$
+            $$ Lado\\hspace{1px} C:\\hspace{1px} ${obj.ladoC}$$
+            $$ Ángulo\\hspace{3px} \\beta:\\hspace{1px} ${beta[0]}\\hspace{1px}º\\hspace{4px}${beta[1]}\\hspace{1px}'\\hspace{4px}${beta[2]}\\hspace{2px}''$$</p>
+        <p class="texto-solucion1">Teorema del coseno:</p>
+        <p class="texto-solucion2">
+            $$B^2 = A^2 + C^2 - 2.A.C.\\cos(\\beta)$$
+            $$B^2 = ${obj.ladoA}^2 + ${obj.ladoC}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoC} \\cdot \\cos(${obj.degreeB.toFixed(3)})$$
+            $$B^2 = ${squaredA.toFixed(2)} + ${squaredC.toFixed(2)} ${dosAC.toFixed(2)} \\cdot(${(cosenoBeta).toFixed(3)})$$
+            $$B^2 = ${squaredA.toFixed(2)} + ${squaredC.toFixed(2)} +(${multiplicacionAux1.toFixed(3)})$$
+            $$B^2 = ${sumaAux1.toFixed(3)}$$
+            $$B = \\sqrt{${sumaAux1.toFixed(3)}}$$
+            $$B = ${resultadoB.toFixed(3)}$$</p>
+        <p class="texto-solucion1">Teorema del coseno:</p>
+        <p class="texto-solucion2">
+            $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
+            $$${obj.ladoA}^2 = ${resultadoB.toFixed(3)}^2 + ${obj.ladoC}^2  - 2 \\cdot ${resultadoB.toFixed(3)} \\cdot ${obj.ladoC} \\cdot \\cos(\\alpha)$$
+            $$${squaredA.toFixed(2)} = ${squaredB.toFixed(2)} + ${squaredC.toFixed(2)} ${dosBC.toFixed(2)} \\cdot \\cos(\\alpha)$$
+            $$${squaredA.toFixed(2)} - ${squaredB.toFixed(2)} - ${squaredC.toFixed(2)} =  ${dosBC.toFixed(2)}.\\cos(\\alpha)$$
+            $$ {${restaAux1.toFixed(2)} \\over ${dosBC.toFixed(2)}} =\\cos(\\alpha)$$
+            $$ \\cos^{-1}(${(divisionAux1).toFixed(3)})= \\alpha$$
+            $$ \\alpha = ${(resultado2).toFixed(3)}$$
+            $$ \\alpha = ${alfa[0]}\\hspace{1px}º\\hspace{4px}${alfa[1]}\\hspace{1px}'\\hspace{4px}${alfa[2]}\\hspace{2px}''$$</p>
+        <p class="texto-solucion1">Ángulos internos:</p>
+                <p class="texto-solucion2">
+                $$ 180 = \\alpha + \\beta + \\gamma$$
+                $$ \\gamma = 180 - \\alpha - \\beta$$
+                $$ \\gamma = 180 - ${(resultado2).toFixed(3)} - ${obj.degreeB}$$
+                $$ \\gamma = ${(resultado3).toFixed(3)}$$
+                $$ \\gamma = ${gamma[0]}\\hspace{1px}º\\hspace{4px}${gamma[1]}\\hspace{1px}'\\hspace{4px}${gamma[2]}\\hspace{2px}''$$</p>
+        <p class="texto-solucion1"></p>
+        ${triangulo}   
+    </div>
+    `    
+return block024;   
 }
