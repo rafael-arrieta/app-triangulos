@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/myResetStylesheet.css">
     <link rel="stylesheet" href="/style/style.css">
+    
     <title>Resuelve triangulos</title>
 </head>
 <body>
     <div class="container">
         <div class="interno-1">
-
         <!-- "TITULO" - DIV -->
             <div class="interno-2">
                 <div class="interno-3">
@@ -23,78 +24,79 @@
             </div>
 
         <!-- "A" - DIV de LADO Y ANGULO -->
-            <div class="interno-2">
-                <div class="interno-3">
-                    <span class="texto-1">
-                        <p>Ingresá lado A:  </p>
-                    </span>
-                    <span class="input-1">
-                        <input type="number" class="input-dato clsLado" id="inputA-lado">
-                    </span>
+            <div class="box-container">
+                <div class="box-data-container">
+                    <div class="interno-3">
+                        <span class="texto-1">
+                            <p>Ingresá lado A:  </p>
+                        </span>
+                        <span class="input-1">
+                            <input type="number" class="input-dato clsLado" id="inputA-lado">
+                        </span>
+                    </div>
+                    <div class="interno-3">
+                        <span class="texto-1">
+                            <p class="texto-1">Ingresá ángulo &#945: </p>
+                        </span>
+                        <span class="input-2">
+                            <input type="number" class="input-dato clsGrado" id="inputA-grad">
+                            <p class="texto-1">º</p>
+                            <input type="number" class="input-dato clsMinuto" id="inputA-min">
+                            <p class="texto-1">'</p>
+                            <input type="number" class="input-dato clsSegundo" id="inputA-seg">
+                            <p class="texto-1">"</p>
+                        </span>
+                    </div>
                 </div>
-                <div class="interno-3">
-                    <span class="texto-1">
-                        <p class="texto-1">Ingresá ángulo &#945: </p>
-                    </span>
-                    <span class="input-2">
-                        <input type="number" class="input-dato clsGrado" id="inputA-grad">
-                        <p class="texto-1">º</p>
-                        <input type="number" class="input-dato clsMinuto" id="inputA-min">
-                        <p class="texto-1">'</p>
-                        <input type="number" class="input-dato clsSegundo" id="inputA-seg">
-                        <p class="texto-1">"</p>
-                    </span>
+            <!-- "B" - DIV de LADO Y ANGULO -->
+                <div class="box-data-container">
+                    <div class="interno-3">
+                        <span class="texto-1">
+                            <p class="texto-1">Ingresá lado B: </p>
+                        </span>
+                        <span class="input-1">
+                            <input type="number" class="input-dato clsLado" id="inputB-lado">
+                        </span>
+                    </div>
+                    <div class="interno-3">
+                        <span class="texto-1">
+                            <p class="texto-1">Ingresá ángulo &#946: </p>
+                        </span>
+                        <span class="input-2">
+                            <input type="number" class="input-dato clsGrado" id="inputB-grad">
+                            <p class="texto-1">º</p>
+                            <input class="input-dato clsMinuto" id="inputB-min">
+                            <p type="number" class="texto-1">'</p>
+                            <input type="number" class="input-dato clsSegundo" id="inputB-seg">
+                            <p type="number" class="texto-1">"</p>
+                        </span>
+                    </div>
+                </div>
+            <!-- "C" - DIV de LADO Y ANGULO -->
+                <div class="box-data-container">
+                    <div class="interno-3">
+                        <span class="texto-1">
+                            <p class="texto-1">Ingresá lado C: </p>
+                        </span>
+                        <span class="input-1">
+                            <input type="number" class="input-dato clsLado" id="inputC-lado">
+                        </span>
+                    </div>
+                    <div class="interno-3">
+                        <span class="texto-1">
+                            <p class="texto-1">Ingresá ángulo &#947: </p>
+                        </span>
+                        <span class="input-2">
+                            <input type="number" class="input-dato clsGrado" id="inputC-grad">
+                            <p class="texto-1">º</p>
+                            <input  type="number" class="input-dato clsMinuto" id="inputC-min">
+                            <p class="texto-1">'</p>
+                            <input  type="number" class="input-dato clsSegundo" id="inputC-seg">
+                            <p class="texto-1">"</p>
+                        </span>
+                    </div>    
                 </div>
             </div>
-        <!-- "B" - DIV de LADO Y ANGULO -->
-            <div class="interno-2">
-                <div class="interno-3">
-                    <span class="texto-1">
-                        <p class="texto-1">Ingresá lado B: </p>
-                    </span>
-                    <span class="input-1">
-                        <input type="number" class="input-dato clsLado" id="inputB-lado">
-                    </span>
-                </div>
-                <div class="interno-3">
-                    <span class="texto-1">
-                        <p class="texto-1">Ingresá ángulo &#946: </p>
-                    </span>
-                    <span class="input-2">
-                        <input type="number" class="input-dato clsGrado" id="inputB-grad">
-                        <p class="texto-1">º</p>
-                        <input class="input-dato clsMinuto" id="inputB-min">
-                        <p type="number" class="texto-1">'</p>
-                        <input type="number" class="input-dato clsSegundo" id="inputB-seg">
-                        <p type="number" class="texto-1">"</p>
-                    </span>
-                </div>
-            </div>
-        <!-- "C" - DIV de LADO Y ANGULO -->
-            <div class="interno-2">
-                <div class="interno-3">
-                    <span class="texto-1">
-                        <p class="texto-1">Ingresá lado C: </p>
-                    </span>
-                    <span class="input-1">
-                        <input type="number" class="input-dato clsLado" id="inputC-lado">
-                    </span>
-                </div>
-                <div class="interno-3">
-                    <span class="texto-1">
-                        <p class="texto-1">Ingresá ángulo &#947: </p>
-                    </span>
-                    <span class="input-2">
-                        <input type="number" class="input-dato clsGrado" id="inputC-grad">
-                        <p class="texto-1">º</p>
-                        <input  type="number" class="input-dato clsMinuto" id="inputC-min">
-                        <p class="texto-1">'</p>
-                        <input  type="number" class="input-dato clsSegundo" id="inputC-seg">
-                        <p class="texto-1">"</p>
-                    </span>
-                </div>    
-            </div>
-            
              <!-- BTN-RESOLVER -->
 
             <div class="div-resolver">
@@ -111,8 +113,13 @@
                 
             </div>
         </div>
-        
+        <div class="invalid-resolution">
+            <h1>App-triangulos</h1>
+            <p>La resolución de</p>
+            <p>tú equipo es inválida</p>
+        </div>
     </div>
+</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> 
