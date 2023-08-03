@@ -88,7 +88,7 @@ function renderBlock012(obj){
                     <div class="solution-column">    
                         <p class="texto-solucion1">Teorema del coseno:</p>
                         <p class="texto-solucion2">
-                            $$A^2 = B^2 + C^2 - 2.A.C.\\cos(\\alpha)$$
+                            $$B^2 = A^2 + C^2 - 2.A.C.\\cos(\\beta)$$
                             $$${obj.ladoB}^2 = ${obj.ladoA}^2 + ${obj.ladoC}^2  - 2 \\cdot ${obj.ladoA} \\cdot ${obj.ladoC} \\cdot \\cos(\\beta)$$
                             $$${squaredB} = ${squaredA} + ${squaredC} ${dosAC} \\cdot \\cos(\\beta)$$
                             $$${squaredB} - ${squaredA} - ${squaredC} =  ${dosAC}.\\cos(\\beta)$$
